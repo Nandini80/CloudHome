@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const mailSender = require('../utils/mailSender');
 const otpGenerator = require('otp-generator');
-const emailVerificationTemplate = require('../mail/templates/emailVerificationTemplate')
+const emailVerificationTemplate = require('../mail/templates/emailVerificationTemplate');
 const {passwordUpdated} = require('../mail/templates/passwordUpdate');
 
 exports.sendotp = async(req, res)=>{
