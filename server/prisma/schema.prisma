@@ -43,6 +43,7 @@ model Otp {
   //db.otp.createIndex({ "createdAt": 1 }, { expireAfterSeconds: 300 }) 
 }
 
+// additionalImages    String[] @default([])
 model Land {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   landName            String //req
@@ -51,10 +52,10 @@ model Land {
   description         String
   image               String
   price               Int
-  additionalImages    String[] @default([])
   appointmentRequired Boolean
   Access              access
   state               String
+  city                String
   landAddress         String
   rentedUsers         String[] @default([]) @db.ObjectId
   users               User[]   @relation("rentedLands" , fields: [rentedUsers], references: [id])
@@ -68,7 +69,7 @@ model User {
   landsRented          String[]  @default([]) @db.ObjectId
   LandRef              Land[]    @relation("rentedLands" ,fields: [landsRented], references: [id])
   email                String    @unique
-  phoneNumber          Int?       @unique
+  phoneNumber          String?       @unique
   password             String
   ownedLands           Land[]   @relation("owner")
   image                String

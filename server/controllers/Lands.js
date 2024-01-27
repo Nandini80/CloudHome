@@ -17,13 +17,13 @@ uploadAdditionalImages = async(additionalImages)=>{
 exports.createLand = async(req , res)=>{
     try{
 
-        const {landName , description , price  , appointmentRequired = 0 , access , state , landAddress} = req.body;
+        const {landName , description , price  , appointmentRequired = 0 , access , state,city , landAddress} = req.body;
         const userId = req.user.id;
         
         const image = req.files.imageFile;
-        const additionalImages = req.files.additionalImages //we need array of images then upload each image to cloudinary and store their secure_url in additional images array then pass that in create
+        // const additionalImages = req.files.additionalImages //we need array of images then upload each image to cloudinary and store their secure_url in additional images array then pass that in create
 
-        if(!userId || !landName || !description || !price || !access || !state || !landAddress){
+        if(!userId ||!city|| !landName || !description || !price || !access || !state || !landAddress){
             return res.status(400).json({
                 success: false,
                 message: "All fields are required",
@@ -32,7 +32,7 @@ exports.createLand = async(req , res)=>{
 
         mainImg = await uploadImageToCloudinary(image , process.env.FOLDER_NAME);
 
-        additionalImagesUrl = await uploadAdditionalImages(additionalImages);
+        // additionalImagesUrl = await uploadAdditionalImages(additionalImages);
 
         land = await prisma.land.create({
             data:{

@@ -1,124 +1,135 @@
-/* UserDashboard.css */
-
-* {
-  font-family: 'Viga', sans-serif;
-  color: black;
+/* Owner.css */
+.container {
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  display: block;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #3498db;
-  color: white;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-}
-
-.company-info {
+/* Hero Section */
+.hero-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 20px;
 }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+.owner-dash-img {
+  width: 35%;
+  height: auto;
 }
 
-.company-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.icon {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.body-container {
+.hero {
+  text-align: left;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.hero-head {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #333; /* Adjust color as needed */
+}
+
+.hero-subHead {
+  font-size: 1.2rem;
+  color: #666; /* Adjust color as needed */
+}
+
+.hero-btn-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 0.7rem;
+  align-items: center;
+  
+}
+
+.list-btn {
+  background-color: #007bff; /* Adjust color as needed */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 200ms linear;
+}
+
+.list-btn:hover{
+  transition: all 200ms linear;
+  background-color: blue;
+}
+
+.tick {
+  color: green; /* Adjust color as needed */
+  scale: 2;
+}
+
+/* Hero Section 2 */
+.hero-section-2 {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+}
+
+.hero-head-2{
+  font-weight: 900;
+  font-size: 2.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
   padding: 20px;
-}
-
-.left-half {
-  width: 100%;
-  text-align: center;
-}
-
-.find-land-button,
-.prev-land-button {
-  padding: 10px;
-  font-size: 16px;
+  width: 90%;
   border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin: 1rem;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
-.find-land-button {
-  background-color: #2ecc71;
-  color: white;
-  padding: 1rem;
-  padding-left: 1.3rem;
-  padding-right: 1.3rem;
+.card-head {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #333;
 }
 
-.prev-land-button {
-  background-color: #2e78cc;
-  color: white;
-  padding: 1rem;
-  padding-left: 1.3rem;
-  padding-right: 1.3rem;
+.card-para {
+  font-size: 1rem;
+  color: #666;
 }
 
-.find-land-button:hover {
-  background-color: white;
-  color: #2ecc71;
-  transform: scale(1.05);
-  border: #2ecc71 1px solid;
+.hero-3{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.prev-land-button:hover {
-  background-color: white;
-  color: #2e78cc;
-  transform: scale(1.05);
-  border: #2e78cc 2px solid;
+.hero-head-3{
+  font-weight: 900;
 }
 
-.landscape-pic {
-  max-width: 100%;
-  border-radius: 100%;
-  max-height: auto;
-}
-
-.footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #f2f2f2;
-}
-
-/* Media Queries for Responsive Design */
-@media screen and (min-width: 768px) {
-  .body-container {
-    flex-direction: row;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .left-half {
-    width: 45%;
-  }
-
-  .landscape-pic {
-    max-width: 20vw;
-    max-height: 20vw;
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
+
+

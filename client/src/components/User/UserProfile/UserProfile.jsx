@@ -1,81 +1,92 @@
 import React from 'react';
-import './UserProfile.css';  // Import your CSS file if needed
+import './UserProfile.css';  
+import { Navbar, Nav } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 const UserProfile = () => {
   return (
-    <div className="master-container">
-    <>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{marginBottom:"2rem",marginLeft:"1.2rem"}}>
-  <img src="/logo.png" alt="" style={{width:"80px"}}/>
-  <a class="navbar-brand" href="#">CloudHome</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Land</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Owner</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-     
-    </ul>
-  </div>
-</nav>
+    <><><Navbar bg="light" expand="lg">
+      <img
+        src="/logo.png"
+        width="80"
+        height="80"
+        className="d-inline-block align-top"
+        alt="Logo" />
+      <Navbar.Brand href="#">CloudHome</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link href="#">Home</Nav.Link>
+          <Nav.Link href="#">Land</Nav.Link>
+          <Nav.Link href="#">Owner</Nav.Link>
+          <Nav.Link href="#">Contact Us</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
 
-        <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-          <div className="form" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <form>
-              <div className="form-group" style={{ display: "flex", marginBottom: "1.5rem",width:"1250%" }}>
-                <label htmlFor="exampleInputEmail1">Id</label>
-                <input
-                  style={{ marginLeft: "1.2rem" }}
-                  type="text"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Id"
-                />
-              </div>
-              
-              <div className="form-group" style={{ display: "flex", marginBottom: "1.5rem", alignItems: "center",width:"1250%" }}>
-                <label htmlFor="exampleInputPassword1">Pincode</label>
-                <input style={{ marginLeft: "1.2rem" }} type="password" className="form-control" id="exampleInputPassword1" placeholder="Enter pincode" />
-              </div>
-              <div className="form-group" style={{ display: "flex", marginBottom: "1.5rem" ,width:"1250%"}}>
-                <label htmlFor="exampleInputEmail1"> Address</label>
-                <input style={{ marginLeft: "1.2rem" }} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" />
-              </div>
+    </>
+    <div className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+  <Form className="w-50 mx-auto light-blue-form">
+    <Form.Group as={Row} className="mb-3" controlId="formPlaintextId">
+      <Form.Label column sm="2">
+        ID
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" placeholder="Enter ID" style={{ width: '100%' }} />
+      </Col>
+    </Form.Group>
 
-              <div className="form-group" style={{ display: "flex", marginBottom: "1.5rem" ,width:"1250%"}}>
-                <label htmlFor="exampleInputEmail1">City</label>
-                <input style={{ marginLeft: "1.2rem" }} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" />
-              </div>
-              <div className="form-group" style={{ display: "flex", marginBottom: "1.5rem" ,width:"1250%"}}>
-                <label htmlFor="exampleInputEmail1">State</label>
-                <input style={{ marginLeft: "1.2rem" }} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address" />
-              </div>              
+    <Form.Group as={Row} className="mb-3" controlId="formPlaintextCity">
+      <Form.Label column sm="2">
+        City
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" placeholder="Enter City" style={{ width: '100%' }} />
+      </Col>
+    </Form.Group>
 
-              <div className="text-center" style={{ marginTop: "1.2rem" }}>
-                <button type="submit" className="btn btn-primary">Save Info</button>
-              </div>
+    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPincode">
+      <Form.Label column sm="2">
+        Pincode
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" placeholder="Enter Pincode" style={{ width: '100%' }} />
+      </Col>
+    </Form.Group>
 
-              <div className="text-center" style={{ marginTop: "1.2rem" }}>
-                <button type="submit" className="btn btn-primary">Update</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </>
-    </div>
+    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPincode">
+      <Form.Label column sm="2">
+        Email
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" placeholder="Enter Email" style={{ width: '100%' }} />
+      </Col>
+    </Form.Group>
+
+    <Form.Group as={Row} className="mb-3" controlId="formPlaintextState">
+      <Form.Label column sm="2">
+        State
+      </Form.Label>
+      <Col sm="10">
+        <Form.Control type="text" placeholder="Enter State" style={{ width: '100%' }} />
+      </Col>
+    </Form.Group>
+    <Button variant="primary" type="submit">
+        Save
+      </Button>
+
+      <Button variant="success" style={{ marginLeft: '1rem' }} type="button">
+        Update
+      </Button>
+  </Form>
+</div>
+
+</>
   );
+
 }
 
 export default UserProfile;

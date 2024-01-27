@@ -43,25 +43,32 @@ export default function SignInSide() {
 
   const loginHandler = async (event) => {
     try {
-      alert(JSON.stringify(formData));
+      // alert(JSON.stringify(formData));
       event.preventDefault();
       const resp = await loginReq(formData);
       alert(JSON.stringify(resp.data));
-
-      if(resp.data.accountType==="Customer")
+      if (resp.data.success === false) 
       {
-        navigate("/userdash");
+        alert(resp.data.message);
       }
-      else 
-      {
-        navigate("/ownerDashboard");
+      else {
+        localStorage.setItem("token", resp.data.userFound.token);
+        localStorage.setItem("email", resp.data.userFound.email);
+        // localStorage.setItem("id", resp.data.userFound.id);
+        localStorage.setItem("accountType", resp.data.userFound.accountType);
+        if (resp.data.userFound.accountType === "Customer") {
+          navigate("/userdash");
+        }
+        else {
+          navigate("/ownerDashboard");
+        }
       }
-    } catch (error) {
+    }
+    catch (error) {
       console.error("Registration error:", error);
     }
-  };
 
-  // const loginObj = {email: formData.email , password: formData.password};
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -74,94 +81,94 @@ export default function SignInSide() {
 
   return (
     <div>
-    <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" style={{marginLeft:"35%"}} sx={{ height: '100vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: `url(${Img})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundPosition: 'center',
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
+      <ThemeProvider theme={defaultTheme}>
+        <Grid container component="main" style={{ marginLeft: "35%" }} sx={{ height: '100vh' }}>
+          <CssBaseline />
+          <Grid
+            item
+            xs={false}
+            sm={4}
+            md={7}
             sx={{
-              my: 8,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              backgroundImage: `url(${Img})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: (t) =>
+                t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              backgroundPosition: 'center',
             }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{width:"100px",height:"100px"}}>
-              <img src={img2}  alt="" style={{maxWidth:"100%"}} />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Log In
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={formData.email}
-                onChange={changeHandler}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={formData.password}
-                onChange={changeHandler}
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="button"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                onClick={loginHandler}
-              >
+          />
+          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+            <Box
+              sx={{
+                my: 8,
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{ width: "100px", height: "100px" }}>
+                <img src={img2} alt="" style={{ maxWidth: "100%" }} />
+              </Avatar>
+              <Typography component="h1" variant="h5">
                 Log In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2" style={{textDecoration:"none"}}>
-                    Forgot password?
-                  </Link>
+              </Typography>
+              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={formData.email}
+                  onChange={changeHandler}
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={formData.password}
+                  onChange={changeHandler}
+                />
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                />
+                <Button
+                  type="button"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onClick={loginHandler}
+                >
+                  Log In
+                </Button>
+                <Grid container>
+                  <Grid item xs>
+                    <Link href="#" variant="body2" style={{ textDecoration: "none" }}>
+                      Forgot password?
+                    </Link>
+                  </Grid>
+                  <Grid item>
+                    <Link href="/Signup" variant="body2" style={{ textDecoration: "none" }}>
+                      {"Register?"}
+                    </Link>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Link href="/Signup" variant="body2" style={{textDecoration:"none"}}>
-                    {"Register?"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
+                <Copyright sx={{ mt: 5 }} />
+              </Box>
             </Box>
-          </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </ThemeProvider>
+      </ThemeProvider>
     </div>
   );
 }

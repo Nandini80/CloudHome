@@ -19,6 +19,7 @@ const Register = () => {
     termsCondition: false,
   });
 
+
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -60,7 +61,6 @@ const Register = () => {
 
         <form className="form">
 
-        
 
           <input
             className="input"
@@ -115,7 +115,7 @@ const Register = () => {
             onChange={changeHandler}
           />
 
-          {/* <label>Account Type : </label>
+          <label>Account Type : </label>
           <select name="accountType" onChange={changeHandler} required>
             <option value="" disabled selected>
               {" "}
@@ -123,12 +123,12 @@ const Register = () => {
             </option>
             <option value="Owner">Owner</option>
             <option value="Customer">Customer</option>
-          </select> */}
+          </select>
 
           <p className="conditions">
             By creating an account, you agree Neighbor may contact you using the
-            above number and email, including through automated technology, SMS,
-            and recorded messages. Consent is not a condition of purchase. View
+            above <br/> number and email, including through automated technology, SMS,
+            and recorded messages.<br/> Consent is not a condition of purchase. View
             Privacy Policy.
           </p>
 
@@ -160,12 +160,15 @@ const Register = () => {
               <p className="login-url">Log into an existing account</p>
             </Link>
           </div>
-        </form>
 
-        <img src={regImg} alt="Register" className="register-img" />
+          <img src={regImg} alt="Register" className="register-img" />
+        </form>
+        
       </div>
 
+        
     </div>
+
   );
 };
 

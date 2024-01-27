@@ -1,16 +1,11 @@
 import React from 'react';
 import { Row, Card, Col, Image, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import '../../LandingPage/LandPage/Landing.css';
 
-function UpperPart() {
-  const navigate = useNavigate();
-
-  const doNavigate = () => {
-    navigate("/Signup");
-  };
-
+function Landing() {
+ 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light text-dark p-4 text-center">
@@ -68,13 +63,13 @@ function UpperPart() {
           <h1>Reviews</h1>
         </div>
         <div style={{ width: "30%", display: "flex", justifyContent: "center" }}>
-          <Image src="/prologis.png" onClick={doNavigate} style={{ width: '25rem', height: '14rem' }} rounded />
+          <Image src="/prologis.png" style={{ width: '25rem', height: '14rem' }} rounded />
         </div>
         <div style={{ width: "30%", display: "flex", justifyContent: "center" }}>
-          <Image src="/equinix.png" onClick={doNavigate} style={{ width: '25rem', height: '14rem' }} rounded />
+          <Image src="/equinix.png" style={{ width: '25rem', height: '14rem' }} rounded />
         </div>
         <div style={{ width: "30%", display: "flex", justifyContent: "center" }}>
-          <Image src="/tower.png" onClick={doNavigate} style={{ width: '25rem', height: '14rem' }} rounded />
+          <Image src="/tower.png"  style={{ width: '25rem', height: '14rem' }} rounded />
         </div>
       </Row>
 
@@ -158,9 +153,9 @@ function UpperPart() {
               <div className="col-md-4">
                 <h5>Our Partners</h5>
                 <div className="d-flex justify-content-around">
-                  <Image src="/prologis.png" onClick={doNavigate} style={{ width: '6rem', height: '3.5rem' }} rounded />
-                  <Image src="/equinix.png" onClick={doNavigate} style={{ width: '6rem', height: '3.5rem' }} rounded />
-                  <Image src="/tower.png" onClick={doNavigate} style={{ width: '6rem', height: '3.5rem' }} rounded />
+                  <Image src="/prologis.png"  style={{ width: '6rem', height: '3.5rem' }} rounded />
+                  <Image src="/equinix.png"  style={{ width: '6rem', height: '3.5rem' }} rounded />
+                  <Image src="/tower.png"  style={{ width: '6rem', height: '3.5rem' }} rounded />
                 </div>
               </div>
             </div>
@@ -174,4 +169,4 @@ function UpperPart() {
   );
 }
 
-export default UpperPart;
+export default Landing;
