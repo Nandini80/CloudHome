@@ -5,7 +5,7 @@ const SignupReq =(data)=>
     return publicReq.post("/api/v1/auth/signup",data);
 };
 
-const Login =(data)=>
+const loginReq =(data)=>
 {
     return publicReq.post("/api/v1/auth/login",data);
 };
@@ -42,4 +42,4 @@ const rentedUsers = ()=>{
     return publicReq.get('/land/getRentedUsers');
 }
 
-export {SignupReq,Login ,OTPReq, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
+export {SignupReq,loginReq ,OTPReq, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
