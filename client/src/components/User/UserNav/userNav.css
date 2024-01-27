@@ -1,10 +1,12 @@
-.container{
+.wrapper{
     width: 100vw;
     height: 20vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: relative;
+    bottom: 40px;
 }
 
 .logo{
@@ -14,8 +16,6 @@
 .sub-nav{
     display: flex;
     width: 20%;
-    font-size: 1.5rem;
-    font-weight: bold;
     justify-content: space-evenly;
 }
 
@@ -23,6 +23,8 @@
     color: rgb(0, 103, 192);
     cursor: pointer;
     transition: all 200ms linear;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .logout{
@@ -39,4 +41,12 @@
 
 .nav-element:hover{
     color: blue;
+}
+
+.nav-first{
+    display: flex;
+    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+
 }
