@@ -18,7 +18,8 @@ function HostProfile()
     access:"",
     appointmentRequired:false,
     city:"",
-    landAddress:""
+    landAddress:"",
+    image:null,
   });
 
   // Bootstrap validation
@@ -42,6 +43,7 @@ function HostProfile()
   }, []);
 
   async function saveInfo() {
+    alert(JSON.stringify(obj));
     var url = "http://localhost:3000/api/v1/land/createLand";
     var formData = new FormData();
     for (var x in obj) {
@@ -49,6 +51,8 @@ function HostProfile()
     }
     var response = await axios.post(url, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
     alert(JSON.stringify(response.data));
+
+    navigate("/userdash");
   }
 
   const doSetObjValue = (event) => {
@@ -56,6 +60,26 @@ function HostProfile()
     doSetObj({ ...obj, [name]: value });
   }
 
+
+  const [profile,setProfile] = useState();
+  function changeImage(pimg)
+  {
+    const reader = new FileReader();
+    reader.onload=()=>{
+      setProfile(reader.result);
+    };
+    reader.readAsDataURL(pimg);
+  }
+
+  function SetPic(event) {
+    var value = event.target.files[0];
+    var { name } = event.target;
+    changeImage(value);
+    alert(name);
+    alert(value);
+    doSetObj({ ...obj, [name]: value });
+  }
+  
   // const saveInfo=async ()=>{
   // alert(JSON.stringify(obj));
   // const resp = await SaveProfileOwner(obj);
@@ -72,12 +96,12 @@ function HostProfile()
       <Form validated={validated} onSubmit={handleSubmit} method="post" >
         <Row className="mb-1 mt-1 offset-md-2">
           <Form.Group as={Col} md="5" className="me-3" >
-            <Form.Label>Area / Land Name</Form.Label>
+            <Form.Label>Area / Land Type</Form.Label>
             <Form.Control
               required
               type="text"
               name="landName"
-              placeholder="LandName"
+              placeholder="Eg house, warehouse etc."
               onChange={doSetObjValue}
               value={obj.landName}
             />
@@ -87,7 +111,7 @@ function HostProfile()
             <Form.Control
               required
               type="text"
-              placeholder="Price"
+              placeholder="In rupees"
               name="price"
               maxLength={10}
               onChange={doSetObjValue}
@@ -100,7 +124,7 @@ function HostProfile()
         <Row className="mb-3 offset-md-1 mt-3">
           <Form.Group as={Col} md="5" className="ms-5" controlId="validationCustom03">
             <Form.Label>Land Adderss</Form.Label>
-            <Form.Control type="text" placeholder="Address" onChange={doSetObjValue} value={obj.address} name="address" required />
+            <Form.Control type="text" placeholder="Address" onChange={doSetObjValue} value={obj.landAddress} name="landAddress" required />
             <Form.Control.Feedback type="invalid">
               Please provide a valid Address.
             </Form.Control.Feedback>
@@ -117,25 +141,52 @@ function HostProfile()
 
         <Row className="mb-3 offset-md-3 mt-3">
           
-          <Form.Group as={Col} md="4" controlId="validationCustom04">
-            <Form.Label>Appointment Required</Form.Label>
-            <Form.Control type="text" name="appointmentRequired" onChange={doSetObjValue} value={obj.appointmentRequired} placeholder="Appointment?" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid state.
-            </Form.Control.Feedback>
-          </Form.Group>
+        <label>Appointment Required : </label>
+          <select name="appointmentRequired" onChange={doSetObjValue} required>
+            <option value="" disabled selected>
+              {" "}
+              Select{" "}
+            </option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+
+          <label>Access : </label>
+          <select name="access" onChange={doSetObjValue} required>
+            <option value="" disabled selected>
+              {" "}
+              Select{" "}
+            </option>
+            <option value="Yearly">Yearly</option>
+            <option value="Monthy">Monthy</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Daily">Daily</option>
+          </select>
+        
 
           <Form.Group as={Col} md="4" controlId="validationCustom03">
-            <Form.Label>PinCode</Form.Label>
-            <Form.Control type="text" placeholder="PinCode" onChange={doSetObjValue} value={obj.pinCode} name="pinCode" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-            </Form.Control.Feedback>
+            <Form.Label>Description</Form.Label>
+            <textarea name="description" cols="30" rows="10" onChange={doSetObjValue} value={obj.description} ></textarea>
+            </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+        <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
+            <Form.Label>Land Image</Form.Label>
+            <Form.Control
+              required
+              type="file"
+              name="image"
+              onChange={SetPic}
+              // value={JSON.stringify(obj.image)}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col} md="4" style={{ marginLeft: "40px" }}>
+            <img src={profile} name="ppic" alt="" height="100px" width="100px"></img>
           </Form.Group>
         </Row>
 
-
-       
         <center>
           <Button md="1" as={Col} className='mb-2' onClick={saveInfo}>Save</Button>
           <Button md="1" as={Col} className='ms-5 mb-2' onClick={saveInfo}>Update</Button>
