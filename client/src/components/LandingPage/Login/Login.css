@@ -1,12 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Viga', sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
+.main-container {
+    width: 100vw;
+}
+
 .login-container {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -16,36 +26,39 @@ body {
     max-width: 100%;
     text-align: center;
     padding: 20px;
-  }
-  
-  .login-container h2 {
+}
+
+.login-container{
+    margin-top: 1rem;
+    margin-left: 31rem;
+}
+.login-container h2 {
     color: #333;
-  }
-  
-  .login-form {
+}
+
+.login-form {
     margin-top: 20px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 20px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     font-size: 14px;
     color: #555;
     margin-bottom: 8px;
-  }
-  
-  .form-group input {
+}
+
+.form-group input {
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
-  
-  .form-group button {
+}
+
+.form-group button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
@@ -53,33 +66,33 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .form-group button:hover {
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
     background-color: #45a049;
-  }
-  
-  .message {
+}
+
+.message {
     color: #dc3545;
     margin-top: 10px;
-  }
-  
-  .heading {
+}
+
+.heading {
     text-align: center;
-  }
-  
-  .forgot-register {
+}
+
+.forgot-register {
     margin-top: 20px;
-  }
-  
-  .forgot-register a {
+}
+
+.forgot-register a {
     text-decoration: none;
     color: #555;
     margin-right: 20px;
     font-size: 14px;
-  }
-  
-  .forgot-register a:hover {
+}
+
+.forgot-register a:hover {
     color: #333;
-  }
-  
+}
