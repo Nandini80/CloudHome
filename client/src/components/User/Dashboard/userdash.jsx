@@ -1,12 +1,20 @@
-import React from 'react';
 import './userdash.css';
 import { CiSettings } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import logo from '../../../assets/CloudHomeLogo.png';
 import img1 from '../../../assets/Unknown_person.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {
+
+  const navigate = useNavigate();
+  const doLogout = ()=>{
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("token");
+    navigate("/");
+  }
+
   return (
     <div>
       {/* Navbar */}
@@ -17,7 +25,7 @@ const UserDashboard = () => {
         </div>
         <div style={{paddingRight:'2rem'}} >
           <CiSettings className="icon" />
-          <CiLogout className="icon" />
+          <CiLogout className="icon" onClick={doLogout} />
           <IoIosHelpCircleOutline className="icon" />
         </div>
       </div>
