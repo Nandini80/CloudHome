@@ -55,84 +55,172 @@ function HostProfile()
 
  
   return (
-    <div style={{overflowX:"hidden"}}>
-      <center>
-        <h1 style={{marginTop:"2rem"}}>Profile Page</h1>
-      </center>
-      <Form validated={validated} onSubmit={handleSubmit} method="post" >
-        <Row className="mb-1 mt-1 offset-md-2">
-          <Form.Group as={Col} md="5" className="me-3" >
-            <Form.Label>Email id</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              name="email"
-              placeholder="email"
-              onChange={doSetObjValue}
-              value={eml}
-              // readOnly
-            />
-          </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustom02">
-            <Form.Label>Mobile</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="phone number"
-              name="phoneNumber"
-              maxLength={10}
-              onChange={doSetObjValue}
-              value={obj.phoneNumber}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3 offset-md-1 mt-3">
-          <Form.Group as={Col} md="5" className="ms-5" controlId="validationCustom03">
-            <Form.Label>Adderss</Form.Label>
-            <Form.Control type="text" placeholder="Address" onChange={doSetObjValue} value={obj.address} name="address" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid Address.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustom03">
-            <Form.Label>City</Form.Label>
-            <Form.Control type="text" placeholder="City" onChange={doSetObjValue} value={obj.city} name="city" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-
-        <Row className="mb-3 offset-md-3 mt-3">
-          
-          <Form.Group as={Col} md="4" controlId="validationCustom04">
-            <Form.Label>State</Form.Label>
-            <Form.Control type="text" name="state" onChange={doSetObjValue} value={obj.state} placeholder="State" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid state.
-            </Form.Control.Feedback>
-          </Form.Group>
-
-          <Form.Group as={Col} md="4" controlId="validationCustom03">
-            <Form.Label>PinCode</Form.Label>
-            <Form.Control type="text" placeholder="PinCode" onChange={doSetObjValue} value={obj.pinCode} name="pinCode" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-
-       
+      <div style={{ overflowX: 'hidden', padding: '20px' }}>
         <center>
-          <Button md="1" as={Col} className='mb-2' onClick={saveInfo}>Save</Button>
-          <Button md="1" as={Col} className='ms-5 mb-2' onClick={saveInfo}>Update</Button>
+          <h1 style={{ marginTop: '2rem' , marginBottom: '2rem', color: '#0066cc', fontFamily: 'Arial, sans-serif' , fontWeight: '900' }}>
+            Profile Page
+          </h1>
         </center>
-      </Form>
-    </div>
+        <Row className="mb-3">
+          <Col md={4}>
+            <center>
+              <img
+                src="/path/to/default/profile/image"
+                alt="Profile"
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '50%',
+                  marginBottom: '1rem',
+                }}
+              />
+            </center>
+          </Col>
+          <Col md={8}>
+            <Form validated={validated} onSubmit={handleSubmit} method="post">
+              {/* <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Email id
+                </Form.Label> */}
+                {/* <Col md={10}>
+                  <Form.Control
+                    required
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    onChange={doSetObjValue}
+                    value={eml}
+                  />
+                </Col> */}
+              {/* </Form.Group> */}
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Mobile
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Phone number"
+                    name="phoneNumber"
+                    maxLength={10}
+                    onChange={doSetObjValue}
+                    value={obj.phoneNumber}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Address
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="Address"
+                    onChange={doSetObjValue}
+                    value={obj.address}
+                    name="address"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid address.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  City
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="City"
+                    onChange={doSetObjValue}
+                    value={obj.city}
+                    name="city"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid city.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  State
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    name="state"
+                    onChange={doSetObjValue}
+                    value={obj.state}
+                    placeholder="State"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid state.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  PinCode
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="PinCode"
+                    onChange={doSetObjValue}
+                    value={obj.pinCode}
+                    name="pinCode"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid pin code.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <center>
+                {/* <Button
+                  className="mb-2"
+                  style={{
+                    backgroundColor: '#0066cc',
+                    color: 'white',
+                    borderRadius: '9999px',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s',
+                  }}
+                  onClick={saveInfo}
+                >
+                  Save
+                </Button> */}
+                <Button
+                  className="ms-1 mb-2"
+                  style={{
+                    backgroundColor: '#0066cc',
+                    color: 'white',
+                    borderRadius: '9999px',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s',
+                    width: "25%"
+                  }}
+                  onClick={saveInfo}
+                >
+                  Update
+                </Button>
+              </center>
+            </Form>
+          </Col>
+        </Row>
+      </div>
   );
 }
 
