@@ -1,12 +1,10 @@
-// UserDashboard.js
-
 import React from 'react';
 import './userdash.css';
 import { CiSettings } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
-import logo from './assets/CloudHomeLogo.png';
-import img1 from './assets/Unknown_person.jpg';
+import logo from '../../../assets/CloudHomeLogo.png';
+import img1 from '../../../assets/Unknown_person.jpg';
 
 const UserDashboard = () => {
   return (

@@ -12,8 +12,8 @@ const Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    accountType: '', 
-    termsCondition: false, 
+    accountType: '',
+    termsCondition: false,
   });
 
   const changeHandler = (event) => {
