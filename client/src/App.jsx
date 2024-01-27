@@ -3,19 +3,18 @@ import Login from './components/LandingPage/Login/Login';
 import HostProfile from './components/Host/HostProfile/HostProfile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LandingPage/Register/Register';
+import Owner from './components/OwnerDashboard/Owner';
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
       <Routes>
-
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Register />}></Route>\
-        <Route path="/hostprofile" element={<HostProfile />}></Route>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/signup" element={<Register />}/>
+        <Route path="/hostprofile" element={<HostProfile />}/>
+        <Route path='/ownerDashboard' element={<Owner/>}/>
       </Routes>
-    </BrowserRouter>
     </>
   )
 }
