@@ -5,7 +5,6 @@ const {login , signup , sendotp , changePassword} = require('../controllers/Auth
 const {resetPassword , resetPasswordToken} = require('../controllers/resetPassword');
 
 const {auth ,isAdmin , isCustomer , isOwner} = require('../middlewares/auth');
-const { message } = require("../config/prismaConfig");
 
 //can we return if token is missing then will login work with auth?
 router.post('/login' ,  login); //add auth middleware
