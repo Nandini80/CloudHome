@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let baseURL = "http://localhost:4000";
+let baseURL = "http://localhost:3000";
 
 const publicReq  = axios.create({
     baseURL,

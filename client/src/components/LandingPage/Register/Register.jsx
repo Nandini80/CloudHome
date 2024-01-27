@@ -2,20 +2,21 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import regImg from '../../../assets/register-page.jpg'
 import './Register.css';
+import { SignupReq } from '../../../services/requests';
 
 const Register = () => {
 
     const [formData , setFormData] = useState({firstName: "" , lastName: "" , email: ""  , password: "" , confirmPassword: "" , accountType: "" , termsCondition: 0 });
 
     function changeHandler(event){
-      const {type , name , value ,checked} = event.target;
-
-      setFormData(setPrevState =>{
-        return{
-        ...setPrevState,
-        [accountType]: type === "radio"?radio:value
-      }   
-    })}
+      const { name , value} = event.target;
+      setFormData({...formData,[name]: value})
+    }
+ 
+    const doRegister= async()=>{
+      const req = await SignupReq(formData);
+      alert(JSON.stringify(req));
+    }
 
     // function submitHandler(event){
         
@@ -55,7 +56,7 @@ const Register = () => {
                 <input className='termsCheckbox' id='terms' type='checkbox' name='terms condition' value={formData.termsCondition}></input>
 
                 <div className='btn-container'>
-                    <input type='submit' value="Create Account" className='btn'></input>
+                    <input type='button' value="Create Account" className='btn' onClick={doRegister}></input>
                     <Link to={"/login"}>
                         <p className='login-url'>Log into an existing account</p>
                     </Link>
