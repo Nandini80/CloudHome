@@ -16,7 +16,7 @@
 
 .register-img{
     object-fit: cover;
-    width: 40vw;
+    width: 30vw;
     border-radius: 20px;
 }
 
@@ -34,6 +34,7 @@
 .form-container{
     width: fit-content;
     max-width: 70%;
+    width: 70%;
 
     /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
@@ -62,8 +63,6 @@
 
 * {
   font: inherit;
-
-
 }
 .conditions{
     color: #1e1e1e;
@@ -85,6 +84,8 @@
     justify-content: center;
     align-items: center;
     gap: 0.7rem;
+    width: 30%;
+    border-radius: 30px;
     /* background-color: ; */
 }
 
@@ -132,4 +133,3 @@
   gap: 0.7rem;
   align-items: center;
 }
-
