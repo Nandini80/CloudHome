@@ -1,16 +1,10 @@
 import './userdash.css';
-import { useNavigate } from 'react-router-dom';
 import userDashImg from '../../../assets/userDash.jpeg';
 import UserNavbar from '../UserNav/userNavbar';
 
 const UserDashboard = () => {
 
-  const navigate = useNavigate();
-  const doLogout = ()=>{
-    localStorage.removeItem("user_email");
-    localStorage.removeItem("token");
-    navigate("/");
-  }
+ 
 
   return (
     <div className='container'>

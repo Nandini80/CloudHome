@@ -1,16 +1,19 @@
 .wrapper{
     width: 100vw;
-    height: 20vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: relative;
-    bottom: 40px;
+    /* position: relative; */
+    /* bottom: 40px; */
 }
 
 .logo{
-    width: 60px;
+    /* height: 2rem; */
+    object-fit: cover;
+    /* width: 2rem; */
+    max-width: 2rem;
 }
 
 .sub-nav{

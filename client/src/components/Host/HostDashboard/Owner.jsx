@@ -2,10 +2,12 @@ import React from 'react'
 import { TiTick } from "react-icons/ti";
 import OwnerImg from '../../../assets/owner-dash.png';
 import './Owner.css';
+import UserNavbar from '../../User/UserNav/userNavbar';
 
 const Owner = () => {
   return (
     <div className='container'>
+        <UserNavbar />
         {/*Hero section */}
         <div className='hero-section'>
 

@@ -12,8 +12,8 @@ import Landing1 from './components/LandingPage/LandPage/landing1';
 
 
 import { useEffect, useState } from 'react';
-import Landing from './components/LandingPage/LandPage/Landing';
 import LandPage from './components/Host/LandPage/LandPage';
+import Owner from './components/Host/HostDashboard/Owner';
 
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
         {/* <Route path="/signup" element={<Register />} /> */}
-        {/* <Route path='/ownerDashboard' element={<Owner />} /> */}
+        <Route path='/ownerDashboard' element={<Owner />} />
         <Route path="/signup" element={<Register />}></Route>
         <Route path="/hostprofile" element={<HostProfile />}></Route>
         <Route path="/userdash" element={<UserDashboard />}></Route>
