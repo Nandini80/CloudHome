@@ -1,24 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { SaveProfileOwner } from '../../../services/requests';
+import { useNavigate } from 'react-router-dom';
+import { grey } from '@mui/material/colors';
 
 function HostProfile() 
 {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [obj, doSetObj] = useState({
+    // id : "",
     email: "",
-    mobile: "",
-    name: "",
+    phoneNumber: "",
+    pinCode:"",
     state: "",
     city: "",
     address: "",
-    pp: null,
-    idProof: null
   });
-  const [proof,setProof] = useState();
-  const [profile,setProfile] = useState();
 
   // Bootstrap validation
   const handleSubmit = (event) => {
@@ -30,158 +31,199 @@ function HostProfile()
     setValidated(true);
   };
 
-  //For prev of profile picture
-  function changePic(pimg)
-  {
-    const reader = new FileReader();
-    reader.onload=()=>{
-      setProfile(reader.result);
-    };
-    reader.readAsDataURL(pimg);
-  }
+  // let userID;
+  let eml;
+  useEffect(() => {
+     eml = localStorage.getItem("email");
+    //  userID = localStorage.getItem("id");
 
-  //For prev of proof picture
-  function changeProof(imgId)
-  {
-    const reader = new FileReader();
-    reader.onload=()=>{
-      setProof(reader.result);
-    };
-    reader.readAsDataURL(imgId);
-  }
+     doSetObj({...obj,email : eml});
+    //  doSetObj({...obj,id : userID});
+  }, []);
+
 
   const doSetObjValue = (event) => {
     const { name, value } = event.target;
     doSetObj({ ...obj, [name]: value });
   };
 
-  function SetPic(event)
-  {
-    var value = event.target.files[0];
-    var {name} = event.target;
-    doSetObj({ ...obj, [name]: value });
-
-    if(name==="pp")
-    {
-      changePic(value);
-    }
-    else
-    {
-      changeProof(value);
-    }
+  const saveInfo=async ()=>{
+  alert(JSON.stringify(obj));
+  const resp = await SaveProfileOwner(obj);
+  alert(JSON.stringify(resp.data));
+  navigate("/ownerDashboard");
   }
 
+ 
   return (
-    <div style={{overflowX:"hidden"}}>
-      <center>
-        <h1 style={{marginTop:"2rem"}}>Land Details</h1>
-      </center>
-      <Form validated={validated} onSubmit={handleSubmit} method="post" >
-        <Row className="mb-1">
-          <Form.Group as={Col} md="4" className="mt-1 me-3" style={{ marginLeft: "29%" }}>
-            <Form.Label>Email id</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              name="email"
-              placeholder="email"
-              onChange={doSetObjValue}
-              value={obj.email}
-            />
-          </Form.Group>
-          <Form.Group as={Col} className="ms-5" style={{marginTop:"2.3rem"}}>
-            <Button type="button" as={Col}>Fetch</Button>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3 offset-md-1">
-          <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Full name"
-              name="name"
-              onChange={doSetObjValue} 
-              value={obj.name}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md="4" style={{ margin: "40px" }} controlId="validationCustom02">
-            <Form.Label>Mobile</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="phone number"
-              name="mobile"
-              onChange={doSetObjValue}
-              value={obj.mobile}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3 offset-md-1">
-          <Form.Group as={Col} md="5" className="ms-5" controlId="validationCustom03">
-            <Form.Label>Adderss</Form.Label>
-            <Form.Control type="text" placeholder="Address" onChange={doSetObjValue} value={obj.address} name="address" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid Address.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md="3" controlId="validationCustom03">
-            <Form.Label>City</Form.Label>
-            <Form.Control type="text" placeholder="City" onChange={doSetObjValue} value={obj.city} name="city" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md="2" controlId="validationCustom04">
-            <Form.Label>State</Form.Label>
-            <Form.Control type="text" name="state" onChange={doSetObjValue} value={obj.state} placeholder="State" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid state.
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-
-        <Row className="mb-3 offset-md-1">
-          <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
-            <Form.Label>Land Picture</Form.Label>
-            <Form.Control
-              required
-              type="file"
-              name="pp"
-              onChange={SetPic}
-              // value={JSON.stringify(obj.pp)}
-            />
-          </Form.Group>
-          <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
-            <Form.Label>Id proof picture</Form.Label>
-            <Form.Control
-              required
-              type="file"
-              name="idProof"
-              onChange={SetPic}
-              // value={obj.idProof}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} md="4" style={{ marginLeft: "40px" }}>
-            <img src={profile} name="ppic" alt="" height="100px"></img>
-          </Form.Group>
-          <Form.Group as={Col} md="4" style={{ marginLeft: "80px" }}> 
-            <img src={proof} name="idpic" alt="" height="100px" ></img>
-          </Form.Group>
-
-        </Row>
+      <div style={{ overflowX: 'hidden', padding: '20px' }}>
         <center>
-          <Button md="1" as={Col} className='mb-2'>Save</Button>
-          <Button md="1" as={Col} className='ms-5 mb-2'>Update</Button>
+          <h1 style={{ marginTop: '2rem' , marginBottom: '2rem', color: '#0066cc', fontFamily: 'Arial, sans-serif' , fontWeight: '900' }}>
+            Profile Page
+          </h1>
         </center>
-      </Form>
-    </div>
+        <Row className="mb-3">
+          <Col md={4}>
+            <center>
+              <img
+                src="/path/to/default/profile/image"
+                alt="Profile"
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  borderRadius: '50%',
+                  marginBottom: '1rem',
+                }}
+              />
+            </center>
+          </Col>
+          <Col md={8}>
+            <Form validated={validated} onSubmit={handleSubmit} method="post">
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Email id
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    readOnly
+                    required
+                    type="text"
+                    style={{backgroundColor: "grey"}}
+                    name="email"
+                    placeholder="Email"
+                    onChange={doSetObjValue}
+                    value={eml}
+                  />
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Mobile
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Phone number"
+                    name="phoneNumber"
+                    maxLength={10}
+                    onChange={doSetObjValue}
+                    value={obj.phoneNumber}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  Address
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="Address"
+                    onChange={doSetObjValue}
+                    value={obj.address}
+                    name="address"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid address.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  City
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="City"
+                    onChange={doSetObjValue}
+                    value={obj.city}
+                    name="city"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid city.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  State
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    name="state"
+                    onChange={doSetObjValue}
+                    value={obj.state}
+                    placeholder="State"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid state.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <Form.Group as={Row} className="mb-3">
+                <Form.Label column md={2}>
+                  PinCode
+                </Form.Label>
+                <Col md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="PinCode"
+                    onChange={doSetObjValue}
+                    value={obj.pinCode}
+                    name="pinCode"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid pin code.
+                  </Form.Control.Feedback>
+                </Col>
+              </Form.Group>
+  
+              <center>
+                {/* <Button
+                  className="mb-2"
+                  style={{
+                    backgroundColor: '#0066cc',
+                    color: 'white',
+                    borderRadius: '9999px',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s',
+                  }}
+                  onClick={saveInfo}
+                >
+                  Save
+                </Button> */}
+                <Button
+                  className="ms-1 mb-2"
+                  style={{
+                    backgroundColor: '#0066cc',
+                    color: 'white',
+                    borderRadius: '9999px',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s',
+                    width: "25%"
+                  }}
+                  onClick={saveInfo}
+                >
+                  Update
+                </Button>
+              </center>
+            </Form>
+          </Col>
+        </Row>
+      </div>
   );
 }
 
