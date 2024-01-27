@@ -47,7 +47,7 @@ export default function SignInSide() {
             backgroundImage: `url(${Img})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundPosition: 'center',
           }}
         />
@@ -61,7 +61,7 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{width:"100px",height:"100px",overflowY:"hidden"}}>
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{width:"100px",height:"100px"}}>
               <img src={img2}  alt="" style={{maxWidth:"100%"}} />
             </Avatar>
             <Typography component="h1" variant="h5">
