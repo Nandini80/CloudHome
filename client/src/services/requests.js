@@ -14,6 +14,9 @@ const OTPReq=(data)=>{
     return publicReq.post("/api/v1/auth/sendotp",data);
 }
 
+const SaveProfileOwner=(data)=>{
+    return publicReq.put("/api/v1/profile/updateProfile",data);
+}
 
 const nearbyLands = ()=>
 {
@@ -42,4 +45,4 @@ const rentedUsers = ()=>{
     return publicReq.get('/land/getRentedUsers');
 }
 
-export {SignupReq,loginReq ,OTPReq, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
+export {SignupReq,loginReq ,OTPReq,SaveProfileOwner, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};

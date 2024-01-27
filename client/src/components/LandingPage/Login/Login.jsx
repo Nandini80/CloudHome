@@ -43,7 +43,7 @@ export default function SignInSide() {
 
   const loginHandler = async (event) => {
     try {
-      alert(JSON.stringify(formData));
+      // alert(JSON.stringify(formData));
       event.preventDefault();
       const resp = await loginReq(formData);
       alert(JSON.stringify(resp.data));
@@ -54,6 +54,7 @@ export default function SignInSide() {
       else {
         localStorage.setItem("token", resp.data.userFound.token);
         localStorage.setItem("email", resp.data.userFound.email);
+        // localStorage.setItem("id", resp.data.userFound.id);
         localStorage.setItem("accountType", resp.data.userFound.accountType);
         if (resp.data.userFound.accountType === "Customer") {
           navigate("/userdash");
