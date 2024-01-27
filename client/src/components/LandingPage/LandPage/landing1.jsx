@@ -3,10 +3,11 @@ import '../../LandingPage/LandPage/style1.css';
 import logo from "../../../assets/CloudHomeLogo.png";
 import ukp from "../../../assets/Unknown_person.jpg"
 
-function Landing() {
+function Landing1() {
  
     return (
     <>
+    <div style={{overflowY:"auto"}}>
       <header className="header">
         <div className="logo">
           <img src={logo} alt='logo' className='logopic'/>
@@ -108,8 +109,9 @@ function Landing() {
           <p>&copy; {new Date().getFullYear()} CloudHome. All Rights Reserved.</p>
         </div>
       </footer>
+      </div>
     </>
   );
 }
 
-export default Landing;
+export default Landing1;

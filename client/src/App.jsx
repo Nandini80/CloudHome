@@ -8,6 +8,7 @@ import Register from './components/LandingPage/Register/Register';
 import UserDashboard from './components/User/Dashboard/userdash';
 import ChatPage from './components/Chat/chat';
 import UserProfile from './components/User/UserProfile/UserProfile';
+import Landing1 from './components/LandingPage/LandPage/landing1';
 
 
 import { useEffect, useState } from 'react';
@@ -36,7 +37,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />}></Route>
+        <Route path="/" element={<Landing1 />}></Route>
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
