@@ -1,22 +1,21 @@
-// UserDashboard.js
-
 import React from 'react';
 import './userdash.css';
 import { CiSettings } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
-import logo from './assets/logo.png';
+import logo from '../../../assets/CloudHomeLogo.png';
+import img1 from '../../../assets/Unknown_person.jpg';
 
 const UserDashboard = () => {
   return (
     <div>
       {/* Navbar */}
       <div className="navbar">
-        <div className="company-info">
+        <div className="company-info" style={{paddingLeft:'1rem'}} >
           <img src={logo} className="logo" />
-          {/* <span className="company-name">CloudHome</span> */}
+          <span className="company-name">CloudHome</span>
         </div>
-        <div>
+        <div style={{paddingRight:'2rem'}} >
           <CiSettings className="icon" />
           <CiLogout className="icon" />
           <IoIosHelpCircleOutline className="icon" />
@@ -25,21 +24,15 @@ const UserDashboard = () => {
       {/* Body */}
       <div className="body-container">
         <div className="left-half">
-          <h1>Give your stuff the space they need</h1>
+          <h1 style={{marginLeft: '3rem'}}>Your Dashboard</h1>
+          <br />
           <button className="find-land-button">Find land nearby</button>
+          <button className="prev-land-button">Previous Lands rented</button>
         </div>
-        <img src="landscape-pic.jpg" alt="Landscape" className="landscape-pic" />
+        <img src={img1} alt="Landscape" className="landscape-pic" />
       </div>
 
-      {/* Previous Lands */}
-      <div className="previous-lands">
-        <h2>Previous Lands Rented</h2>
-        {/* Example Fields */}
-        <div className="land-item">Land A - Location A</div>
-        <div className="land-item">Land B - Location B</div>
-        <div className="land-item">Land C - Location C</div>
-      </div>
-
+      
       {/* Footer */}
       <div className="footer">
         <p>&copy; 2024 CloudHome. All rights reserved.</p>

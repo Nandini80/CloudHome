@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
 .container{
-    height: 100vh;
+    height: 140vh;
     width: 100vw;
-    padding: 10%;
+    /* padding: 10  %; */
     display: flex;
+    /* margin-top: 11rem; */
     gap: 50px;
     justify-content: center;
     align-items: center;
@@ -61,7 +62,7 @@
 
 
 }
-
+/* 
 body {
   height:100vh;
   background-color: hsl(240, 19%, 12%);
@@ -69,7 +70,7 @@ body {
   display:flex;
   align-items:center;
   justify-content:center
-}
+} */
 
 /* variables */
 :root {
@@ -326,15 +327,15 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.7rem;
-    background-color: ;
+    /* background-color: ; */
 }
 
 .btn{
     width: 40%;
-    padding: 10px;
+    padding: 5px;
     border-radius: 30px;
 }
 
 .login-url{
-    
+  text-decoration: none;   
 }

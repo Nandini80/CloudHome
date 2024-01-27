@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     font-family: 'Viga', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+} */
 
 .main-container {
     width: 100vw;
@@ -22,7 +22,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    width: 300px;
+    width: 100px;
     max-width: 100%;
     text-align: center;
     padding: 20px;
