@@ -4,7 +4,7 @@ import HostProfile from './components/Host/HostProfile/HostProfile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LandingPage/Register/Register';
 
-import Owner from './components/OwnerDashboard/Owner';
+import Owner from './components/Host/HostDashboard/Owner';
 import UserDashboard from './components/User/Dashboard/userdash';
 import ChatPage from './components/Chat/chat';
 import { useEffect, useState } from 'react';
