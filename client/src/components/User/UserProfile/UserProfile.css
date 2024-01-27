@@ -1,0 +1,28 @@
+.btn{
+    width:150px;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+/* .form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+.master-container {
+  background-color: rgba(17, 162, 219, 0.26);
+  margin-top: 2rem;
+  height: 100%;
+  width:100%;
+
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
