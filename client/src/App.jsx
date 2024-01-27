@@ -8,11 +8,12 @@ import Register from './components/LandingPage/Register/Register';
 import UserDashboard from './components/User/Dashboard/userdash';
 import ChatPage from './components/Chat/chat';
 import UserProfile from './components/User/UserProfile/UserProfile';
+import Landing1 from './components/LandingPage/LandPage/landing1';
 
 
 import { useEffect, useState } from 'react';
-import Landing from './components/LandingPage/LandPage/Landing';
 import LandPage from './components/Host/LandPage/LandPage';
+import Owner from './components/Host/HostDashboard/Owner';
 
 
 function App() {
@@ -36,12 +37,17 @@ function App() {
   return (
     <>
       <Routes>
+<<<<<<< HEAD
         <Route path="/" element={<Landing />}></Route>
          <Route path="/login" element={<Login />} /> 
+=======
+        <Route path="/" element={<Landing1 />}></Route>
+        {/* <Route path="/login" element={<Login />} /> */}
+>>>>>>> 64a526487cd55572d1887451096863092b2eb228
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
         {/* <Route path="/signup" element={<Register />} /> */}
-        {/* <Route path='/ownerDashboard' element={<Owner />} /> */}
+        <Route path='/ownerDashboard' element={<Owner />} />
         <Route path="/signup" element={<Register />}></Route>
         <Route path="/hostprofile" element={<HostProfile />}></Route>
         <Route path="/userdash" element={<UserDashboard />}></Route>

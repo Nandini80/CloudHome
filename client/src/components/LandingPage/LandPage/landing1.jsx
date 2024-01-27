@@ -2,23 +2,33 @@ import React from 'react';
 import '../../LandingPage/LandPage/style1.css';
 import logo from "../../../assets/CloudHomeLogo.png";
 import ukp from "../../../assets/Unknown_person.jpg"
+import { useNavigate } from 'react-router-dom';
 
-function Landing() {
- 
+function Landing1() {
+  const navigate = useNavigate();
+
+  const doRegister=()=>{
+    navigate("/signup");
+  }
+
+  const doLogin=()=>{
+    navigate("/login");
+  }
     return (
     <>
+    <div style={{overflowY:"auto"}}>
       <header className="header">
         <div className="logo">
           <img src={logo} alt='logo' className='logopic'/>
           <span className='coname'>CloudHome</span>
         </div>
             <a href="#" className='opt'>Home</a>
-            <a href="#" className='opt'>User</a>
-            <a href="#" className='opt'>Lands</a>
+            <a href="#" className='opt'>Reviews</a>
+            {/* <a href="#" className='opt'>Lands</a> */}
             <a href="#" className='opt'>Contact Us</a>
         <div className="auth-buttons">
-          <button className="register-button">Register</button>
-          <button className="login-button">Login</button>
+          <button className="register-button" onClick={doRegister}>Register</button>
+          <button className="login-button" onClick={doLogin}>Login</button>
         </div>
       </header>
 
@@ -26,7 +36,7 @@ function Landing() {
         <div className="hero-text">
             <span className='mainname'>CloudHome</span>
             <h1>Give Your Stuff <br />The Space They Deserve! </h1>
-            <button className='findspacebtn'>Find Your Space!</button>
+            <button className='findspacebtn' onClick={doRegister}>Find Your Space!</button>
         </div>
         <div className="hero-images">
           <img src="/hero-image.png" alt="Not available" className='heropic1'/>
@@ -108,8 +118,9 @@ function Landing() {
           <p>&copy; {new Date().getFullYear()} CloudHome. All Rights Reserved.</p>
         </div>
       </footer>
+      </div>
     </>
   );
 }
 
-export default Landing;
+export default Landing1;
