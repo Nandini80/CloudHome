@@ -11,6 +11,7 @@ exports.sendotp = async(req, res)=>{
     try{
 
         const {email} = req.body;
+        console.log(email);
 
         const checkUserPresent = await prisma.user.findUnique({
             where:{
