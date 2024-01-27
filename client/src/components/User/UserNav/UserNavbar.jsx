@@ -5,8 +5,11 @@ import './userNav.css';
 
 const UserNavbar = () => {
   return (
-    <div className='container'>
-        <img src={logo} className='logo'/>
+    <div className='wrapper'>
+      <div className='nav-first'>
+      <img src={logo} className='logo'/>
+      <p className='nav-element'>CloudHome</p>
+      </div>
 
         <div className='sub-nav'>
             <p className='nav-element'>Help</p>
