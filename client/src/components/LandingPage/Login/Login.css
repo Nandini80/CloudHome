@@ -2,19 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
+    
 }
-
-/* body {
+::-webkit-scrollbar {
+    display: none;
+}
+ /* body {
     font-family: 'Viga', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-} */
+    overflow-x:hidden;
+    
+}  */
 
 .main-container {
     width: 100vw;
+    
 }
 
 .login-container {
@@ -26,6 +33,8 @@
     max-width: 100%;
     text-align: center;
     padding: 20px;
+    left:0rem;
+    right:0rem;
 }
 
 .login-container{

@@ -82,22 +82,24 @@ export default function SignInSide() {
   return (
     <div>
       <ThemeProvider theme={defaultTheme}>
-        <Grid container component="main" style={{ marginLeft: "35%" }} sx={{ height: '100vh' }}>
+        <Grid container component="main" md={12} style={{ marginLeft: '13rem',marginRight:'0rem' }} sx={{ height: '100vh' }}>
           <CssBaseline />
           <Grid
             item
             xs={false}
             sm={4}
-            md={7}
+            md={4.5}
             sx={{
               backgroundImage: `url(${Img})`,
+
               backgroundRepeat: 'no-repeat',
-              backgroundColor: (t) =>
-                t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-              backgroundPosition: 'center',
+              backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
+              backgroundPosition: 'contain',
             }}
           />
-          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Grid item xs={12} sm={8} md={4.5} component={Paper} elevation={6 } square style={{display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center', justifyContent:'center'}}  >
             <Box
               sx={{
                 my: 8,
@@ -105,10 +107,11 @@ export default function SignInSide() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{ width: "100px", height: "100px" }}>
-                <img src={img2} alt="" style={{ maxWidth: "100%" }} />
+              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} style={{ width: '100px', height: '100px' }}>
+                <img src={img2} alt="" style={{ maxWidth: '100%' }} />
               </Avatar>
               <Typography component="h1" variant="h5">
                 Log In
@@ -153,17 +156,16 @@ export default function SignInSide() {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link href="#" variant="body2" style={{ textDecoration: "none" }}>
+                    <Link href="#" variant="body2" style={{ textDecoration: 'none' }}>
                       Forgot password?
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="/Signup" variant="body2" style={{ textDecoration: "none" }}>
-                      {"Register?"}
+                    <Link href="/Signup" variant="body2" style={{ textDecoration: 'none' }}>
+                      {'Register?'}
                     </Link>
                   </Grid>
                 </Grid>
-                <Copyright sx={{ mt: 5 }} />
               </Box>
             </Box>
           </Grid>
