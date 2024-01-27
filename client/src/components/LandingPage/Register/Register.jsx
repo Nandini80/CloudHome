@@ -52,12 +52,16 @@ const Register = () => {
   };
 
   return (
+
     <div className="container">
       <div className="form-container">
         <h1 className="head">Create an account</h1>
         <p className="sub-head">Join the Neighborhood</p>
 
         <form className="form">
+
+        
+
           <input
             className="input"
             placeholder="First Name"
@@ -74,15 +78,19 @@ const Register = () => {
             value={formData.lastName}
             onChange={changeHandler}
           />
-          <input
-            className="input"
-            placeholder="Email"
-            name="email"
-            value={formData.email}
-            onChange={changeHandler}
-          />
 
-          <button onClick={Sendotp} >Send OTP</button>
+          <div className="otp-container">
+            <input
+              className="input"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={changeHandler}
+            />
+
+            <button onClick={Sendotp} className="otp-btn" >Send OTP</button>
+          </div>
+
           <input
             className="input"
             placeholder="otp"
@@ -107,7 +115,7 @@ const Register = () => {
             onChange={changeHandler}
           />
 
-          <label>Designation : </label>
+          {/* <label>Account Type : </label>
           <select name="accountType" onChange={changeHandler} required>
             <option value="" disabled selected>
               {" "}
@@ -115,7 +123,7 @@ const Register = () => {
             </option>
             <option value="Owner">Owner</option>
             <option value="Customer">Customer</option>
-          </select>
+          </select> */}
 
           <p className="conditions">
             By creating an account, you agree Neighbor may contact you using the
@@ -153,9 +161,10 @@ const Register = () => {
             </Link>
           </div>
         </form>
+
+        <img src={regImg} alt="Register" className="register-img" />
       </div>
 
-      <img src={regImg} alt="Register" className="register-img" />
     </div>
   );
 };
