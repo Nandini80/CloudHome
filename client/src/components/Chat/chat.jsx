@@ -89,7 +89,7 @@ const ChatPage = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <div className="card chat-container">
         <div className="card-header bg-primary text-white">
           {/* Hardcoded User Details */}
@@ -104,7 +104,7 @@ const ChatPage = () => {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`mb-3 message-container ${message.sender === 'user' ? 'user-message' : 'other-message'}`}
+              className={`mb-3 message-container ${message.sender === 'user' ? 'user-message' : 'other-message'}` }
               onContextMenu={(e) => message.sender === 'user' && handleContextMenu(index, e)}
             >
               {message.sender !== 'user' && (
@@ -119,8 +119,8 @@ const ChatPage = () => {
                 </div>
               )}
               <div
-                className={`alert ${message.sender === 'user' ? 'alert-success' : 'alert-info'} message-content`}
-                style={{ borderRadius: '20px', maxWidth: '70%' }}
+                className={`alert ${message.sender === 'user' ? 'alert-success' : 'alert-info'} message-content` }
+                style={{ borderRadius: '15px', maxWidth: '70%',  padding: '0.3rem', paddingLeft:'0.7rem', paddingRight: '0.7rem', margin: '0px', backgroundColor: 'rgba(177,177,177,0.3)', borderWidth: '0px'}}
               >
                 {editingIndex === index ? (
                   <>
@@ -148,13 +148,7 @@ const ChatPage = () => {
                         target={optionsTarget}
                       />
                     )}
-                    <div className="message-status">
-                      {message.sender === 'user' ? (
-                        'Sent'
-                      ) : (
-                        <div className="message-time">{message.time}</div>
-                      )}
-                    </div>
+                    
                   </>
                 )}
               </div>

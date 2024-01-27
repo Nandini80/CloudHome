@@ -8,7 +8,7 @@ function Landing() {
  
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light text-dark p-4 text-center">
+      {/* <nav className="navbar navbar-expand-lg bg-light text-dark p-4 text-center">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img src="/logo.png" alt="Your Logo" style={{ height: '80px', width: 'auto' }} />
@@ -37,7 +37,7 @@ function Landing() {
             </span>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       <Row className="w-100 justify-content-center align-items-center" style={{ height: "35rem" }}>
         <Col xs={12} md={6}>

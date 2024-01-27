@@ -1,9 +1,19 @@
 /* ChatPage.css */
 
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .chat-container {
-  height: 85vh;
-  width: 90vw;
+  height: 90vh;
+  width: 100vw;
   overflow: hidden; /* Hide the vertical scrollbar */
+  position: absolute;
+  top: 10vh;
+  /* background-color: rgb(203, 238, 254); */
+  background-color: whitesmoke;
 }
 
 .chat-body {
@@ -15,7 +25,7 @@
   border-radius: 20px;
   max-width: 70%;
   margin-left: auto;
-  padding: 10px;
+  /* padding: 10px; */
   word-wrap: break-word;
   margin-bottom: 5px;
 }
@@ -56,6 +66,7 @@
 
 .user-name {
   font-weight: bold;
+  color: whitesmoke;
 }
 
 .message-content {
@@ -70,6 +81,7 @@
 
 .input-group {
   margin-top: 10px;
+  height: 3rem;
 }
 
 .card-header {
@@ -80,6 +92,12 @@
 .btn-primary {
   background-color: #0077b5;
   border-color: #0077b5;
+  width: 5rem;
+  height: 3rem;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .btn-primary:hover {
@@ -103,4 +121,10 @@
   font-size: 8px;
   color: #888;
   padding: 2px;
+}
+
+.form-control{
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
