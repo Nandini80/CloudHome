@@ -4,13 +4,15 @@ const { user } = require("../config/prismaConfig");
 //update delete profile
 exports.updateProfile = async(req, res)=>{
     try {
-        const {email , phoneNumber , address =null, state =null, pinCode = null, city=null } = req.body;
-        console.log(email,phoneNumber,address,state);
-        if (!email) {
-          return res.status(400).json({ error: 'Email is required for updating the profile.' });
+        const { phoneNumber , address =null, state =null, pinCode = null, city=null } = req.body;
+        const userId = req.user.id;
+
+        console.log(userId,phoneNumber,address,state);
+        if (!userId) {
+          return res.status(400).json({ error: 'UserId is required for updating the profile.' });
         }
         const updatedUser = await prisma.User.update({
-          where: { email},  
+          where: { id: userId},  
           data: {
             address,
             state,

@@ -38,18 +38,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Landing1 />}></Route>
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
-        {/* <Route path="/signup" element={<Register />} /> */}
         <Route path='/ownerDashboard' element={<Owner />} />
-        <Route path="/signup" element={<Register />}></Route>
         <Route path="/hostprofile" element={<HostProfile />}></Route>
         <Route path="/userdash" element={<UserDashboard />}></Route>
         <Route path="/chat" element={<ChatPage />}></Route>
-
         <Route path="/userprofile" element={<UserProfile/>}></Route>
-
         <Route path="/landPage" element={<LandPage />}></Route>
 
       </Routes>

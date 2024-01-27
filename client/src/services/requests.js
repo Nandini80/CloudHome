@@ -18,12 +18,16 @@ const SaveProfileOwner=(data)=>{
     return publicReq.put("/api/v1/profile/updateProfile",data);
 }
 
+const GetItems=()=>{
+    return publicReq.get("/api/v1/profile/profileDetails");
+}
+
 const nearbyLands = ()=>
 {
     return publicReq.get('/land/nearbyLands');
 }
 
-const createLand = (data)=>{
+const createLand = ()=>{
     return publicReq.post('/land/createLand');
 }
 
@@ -45,4 +49,4 @@ const rentedUsers = ()=>{
     return publicReq.get('/land/getRentedUsers');
 }
 
-export {SignupReq,loginReq ,OTPReq,SaveProfileOwner, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
+export {SignupReq,loginReq,GetItems ,OTPReq,SaveProfileOwner, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};

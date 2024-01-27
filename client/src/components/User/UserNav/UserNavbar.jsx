@@ -12,6 +12,10 @@ const UserNavbar = () => {
     localStorage.removeItem("token");
     navigate("/");
   }
+
+  const OpenProfile=()=>{
+    navigate("/hostprofile");
+  }
   return (
     <div className='wrapper'>
       <div className='nav-first'>
@@ -21,7 +25,7 @@ const UserNavbar = () => {
 
         <div className='sub-nav'>
             <p className='nav-element'>Help</p>
-            <p className='nav-element'>Profile</p>
+            <p className='nav-element' onClick={OpenProfile}>Profile</p>
             <p className='nav-element'><LuLogOut className='logout' onClick={doLogout}/></p>
         </div>  
 

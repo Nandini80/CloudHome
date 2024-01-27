@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { SaveProfileOwner } from '../../../services/requests';
+import { GetItems, SaveProfileOwner } from '../../../services/requests';
 import { useNavigate } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
 
@@ -12,8 +12,6 @@ function HostProfile()
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [obj, doSetObj] = useState({
-    // id : "",
-    email: "",
     phoneNumber: "",
     pinCode:"",
     state: "",
@@ -31,16 +29,6 @@ function HostProfile()
     setValidated(true);
   };
 
-  // let userID;
-  let eml;
-  useEffect(() => {
-     eml = localStorage.getItem("email");
-    //  userID = localStorage.getItem("id");
-
-     doSetObj({...obj,email : eml});
-    //  doSetObj({...obj,id : userID});
-  }, []);
-
 
   const doSetObjValue = (event) => {
     const { name, value } = event.target;
@@ -54,6 +42,10 @@ function HostProfile()
   navigate("/ownerDashboard");
   }
 
+  useEffect(() => {
+    var obj = GetItems();
+    alert(JSON.stringify(obj));
+  }, []);
  
   return (
       <div style={{ overflowX: 'hidden', padding: '20px' }}>
@@ -79,24 +71,6 @@ function HostProfile()
           </Col>
           <Col md={8}>
             <Form validated={validated} onSubmit={handleSubmit} method="post">
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column md={2}>
-                  Email id
-                </Form.Label>
-                <Col md={8}>
-                  <Form.Control
-                    readOnly
-                    required
-                    type="text"
-                    style={{backgroundColor: "grey"}}
-                    name="email"
-                    placeholder="Email"
-                    onChange={doSetObjValue}
-                    value={eml}
-                  />
-                </Col>
-              </Form.Group>
-  
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column md={2}>
                   Mobile
