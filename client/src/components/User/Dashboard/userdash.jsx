@@ -57,8 +57,7 @@ const UserDashboard = () => {
                 <h1 className='hero-head'>Hi Your Name <br/> Welcome to CloudHome</h1>
                 <p className='hero-subHead'>The easiest way to rent lands!</p>
                 <div className='hero-btn-container'>
-                    <button className='list-btn'>List Your Space</button>
-                    <p><TiTick className='tick'/> It's free to list your space.</p>
+                    <button className='list-btn'>Find Nearby Lands</button>
                 </div>
 
             </div>
@@ -112,6 +111,7 @@ const UserDashboard = () => {
             {/*send request get to backend add map function to show your rented users as caraousel or no lands if no lands fetched */}
         </div>
         
+    </div>
     </div>
   );
 };
