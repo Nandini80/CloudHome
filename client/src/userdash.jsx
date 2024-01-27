@@ -5,6 +5,7 @@ import './userdash.css';
 import { CiSettings } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
+import logo from './assets/logo.png';
 
 const UserDashboard = () => {
   return (
@@ -12,8 +13,8 @@ const UserDashboard = () => {
       {/* Navbar */}
       <div className="navbar">
         <div className="company-info">
-          <img src='./assets/logo.png' alt='Logo' className="logo" />
-          <span className="company-name">CloudHome</span>
+          <img src={logo} className="logo" />
+          {/* <span className="company-name">CloudHome</span> */}
         </div>
         <div>
           <CiSettings className="icon" />
