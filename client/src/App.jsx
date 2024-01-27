@@ -37,7 +37,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
-        {/* <Route path="/login" element={<Login />} /> */}
+         <Route path="/login" element={<Login />} /> 
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
         {/* <Route path="/signup" element={<Register />} /> */}
