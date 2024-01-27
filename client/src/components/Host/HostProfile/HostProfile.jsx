@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { SaveProfileOwner } from '../../../services/requests';
 import { useNavigate } from 'react-router-dom';
+import { grey } from '@mui/material/colors';
 
 function HostProfile() 
 {
@@ -78,21 +79,23 @@ function HostProfile()
           </Col>
           <Col md={8}>
             <Form validated={validated} onSubmit={handleSubmit} method="post">
-              {/* <Form.Group as={Row} className="mb-3">
+              <Form.Group as={Row} className="mb-3">
                 <Form.Label column md={2}>
                   Email id
-                </Form.Label> */}
-                {/* <Col md={10}>
+                </Form.Label>
+                <Col md={8}>
                   <Form.Control
+                    readOnly
                     required
                     type="text"
+                    style={{backgroundColor: "grey"}}
                     name="email"
                     placeholder="Email"
                     onChange={doSetObjValue}
                     value={eml}
                   />
-                </Col> */}
-              {/* </Form.Group> */}
+                </Col>
+              </Form.Group>
   
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column md={2}>
