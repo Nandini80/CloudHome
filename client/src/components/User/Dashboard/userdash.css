@@ -1,0 +1,127 @@
+/* UserDashboard.css */
+
+* {
+  background-color: #fff;
+  font-family: 'Viga', sans-serif;
+  color: black; /* Set default text color */
+  overflow-x: hidden;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*padding: 15px;*/
+  background-color: #3498db;
+  color: white;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  /*padding: 2rem;*/
+}
+
+.company-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Body container styles */
+.body-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  width: 100vw;
+}
+
+.left-half {
+  width: 45%;
+}
+
+.find-land-button,
+.prev-land-button {
+padding: 10px;
+font-size: 16px;
+border: none;
+border-radius: 15px;
+cursor: pointer;
+margin: 1rem;
+transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.find-land-button {
+background-color: #2ecc71;
+color: white;
+padding: 1rem;
+padding-left: 1.3rem;
+padding-right: 1.3rem;
+}
+
+.prev-land-button {
+background-color: #2e78cc;
+color: white;
+padding: 1rem;
+padding-left: 1.3rem;
+padding-right: 1.3rem;
+}
+
+.find-land-button:hover
+{
+background-color: white;
+color: #2ecc71; /* Adjust color for hover state */
+transform: scale(1.05); /* Optional: Add a slight scale effect on hover */
+border: #2ecc71 1px solid;
+}
+
+.prev-land-button:hover {
+background-color: white;
+color: #2e78cc; /* Adjust color for hover state */
+transform: scale(1.05); /* Optional: Add a slight scale effect on hover */
+border: #2e78cc 2px solid;
+
+}
+
+.landscape-pic {
+  max-width: 20vw;
+  border-radius: 100%;
+  max-height: 20vw;
+
+}
+
+/* Previous Lands styles */
+.previous-lands {
+  margin: 50px;
+}
+
+.land-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
