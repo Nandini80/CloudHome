@@ -13,6 +13,8 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import logo from '../../../assets/CloudHomeLogo.png';
 import img1 from '../../../assets/Unknown_person.jpg';
 import { useNavigate } from 'react-router-dom';
+import userDashLogo from '../../../assets/userDash.jpeg';
+import UserNavbar from '../UserNav/userNavbar';
 
 const UserDashboard = () => {
 
@@ -25,46 +27,24 @@ const UserDashboard = () => {
 
   return (
     <div className='container'>
+      <UserNavbar/>
         {/*Hero section */}
         <div className='hero-section'>
-    <div>
-      {/* Navbar */}
-      <div className="navbar">
-        <div className="company-info" style={{paddingLeft:'1rem'}} >
-          <img src={logo} className="logo" />
-          <span className="company-name">CloudHome</span>
-        </div>
-        <div style={{paddingRight:'2rem'}} >
-          <CiSettings className="icon" />
-          <CiLogout className="icon" onClick={doLogout} />
-          <IoIosHelpCircleOutline className="icon" />
-        </div>
-      </div>
-      {/* Body */}
-      <div className="body-container">
-        <div className="left-half">
-          <h1 style={{marginLeft: '3rem'}}>Your Dashboard</h1>
-          <br />
-          <button className="find-land-button">Find land nearby</button>
-          <button className="prev-land-button">Previous Lands rented</button>
-        </div>
-        <img src={img1} alt="Landscape" className="landscape-pic" />
-      </div>
 
-            <img src="" className='owner-dash-img'/>
+            <img src={userDashLogo} className='owner-dash-img'/>
 
             <div className='hero'>
-                <h1 className='hero-head'>Hi Your Name <br/> Welcome to CloudHome</h1>
-                <p className='hero-subHead'>The easiest way to rent lands!</p>
+                <h1 className='hero-head'>Hello Your Name <br/> Welcome To CloudHome</h1>
+                <p className='hero-subHead'>Find storages easily!</p>
                 <div className='hero-btn-container'>
-                    <button className='list-btn'>Find Nearby Lands</button>
+                    <button className='list-btn'>Find Nearby Storages</button>
                 </div>
 
             </div>
         </div>
 
         {/*hero section 2  , add icons in cards*/}
-        <div className='hero-section-2'>
+        {/* <div className='hero-section-2'>
             <h2 className='hero-head-2'>We've thought of everything</h2>
 
             <div className='grid'>
@@ -100,18 +80,17 @@ const UserDashboard = () => {
                 </div>
 
             </div>
-        </div>
+        </div> */}
 
         {/*hero head 3 */}
         <div className='hero-3'>
-            <h2 className='hero-head-3'>Check Your Lands</h2>
+            <h2 className='hero-head-3'>Check Your Rented Lands</h2>
             {/*send request get to backend add map function to show your lands as caraousel or no lands if no lands fetched */}
 
-            <h2 className='hero-head-3'>Check Your Rented Users</h2>
+            <h2 className='hero-head-3'>Lands in your states</h2>
             {/*send request get to backend add map function to show your rented users as caraousel or no lands if no lands fetched */}
         </div>
         
-    </div>
     </div>
   );
 };
