@@ -1,72 +1,172 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import regImg from '../../../assets/register-page.jpg'
-import './Register.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import regImg from "../../../assets/register-page.jpg";
+import "./Register.css";
+import { OTPReq, SignupReq } from "../../../services/requests";
+import Button from "@mui/material/Button";
+import { useNavigate } from 'react-router-dom';
+
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    accountType: "",
+    otp:"",
+    termsCondition: false,
+  });
 
-    const [formData , setFormData] = useState({firstName: "" , lastName: "" , email: ""  , password: "" , confirmPassword: "" , accountType: "" , termsCondition: 0 });
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-    function changeHandler(event){
-      const {type , name , value ,checked} = event.target;
+  const navigate = useNavigate();
 
-      setFormData(setPrevState =>{
-        return{
-        ...setPrevState,
-        [accountType]: type === "radio"?radio:value
-      }   
-    })}
+  const doRegister = async (event) => {
+    try {
+      // alert(JSON.stringify(formData));
+      event.preventDefault();
+      const req = await SignupReq(formData);
+      navigate("/login");
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
+  };
 
-    // function submitHandler(event){
-        
-    // }
+
+  const Sendotp = async () => {
+    try {
+      const emailObj = {email: formData.email};
+      const req = await OTPReq(emailObj);
+      alert("OTP sent");
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
+  };
 
   return (
-    <div className='container'>
-        <div className='form-container'>
-            <h1 className='head'>Create an account</h1>
-            <p className='sub-head'>Join the Neighborhood</p>
 
-            <form className='form'>
-                <ul class="radio-switch ">
-                <li class="radio-switch__item">
-                    <input class="radio-switch__input ri5-sr-only" type="radio" name="radio-switch-name" id="radio-1" value="" checked />
-                    <label class="radio-switch__label" for="radio-1">Customer</label>
-                </li>
+    <div className="container">
+      <div className="form-container">
+        <h1 className="head">Create an account</h1>
+        <p className="sub-head">Join the Neighborhood</p>
 
-                <li class="radio-switch__item">
-                    <input class="radio-switch__input ri5-sr-only" type="radio" name="radio-switch-name" id="radio-2" value=""/>
-                    <label class="radio-switch__label" for="radio-2">Owner</label>
-                    <div aria-hidden="true" class="radio-switch__marker"></div>
-                </li>
-                </ul>
+        <form className="form">
 
+        
 
+          <input
+            className="input"
+            placeholder="First Name"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={changeHandler}
+          />
+          <input
+            className="input"
+            placeholder="Last Name"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={changeHandler}
+          />
 
-                <input className='input' placeholder='First Name' id='firstName' name='firstName' value={formData.firstName} onChange={changeHandler}></input>
-                <input className='input' placeholder='Last Name' id='lastName' name='lastName' value={formData.lastName} onChange={changeHandler}></input>
-                <input className='input' placeholder='Email' name='email' value={formData.email} onChange={changeHandler}></input>
-                <input className='input' placeholder='Password' name='password' value={formData.password} onChange={changeHandler}></input>
-                <input className='input' placeholder='Confirm Password' name='confirmPassword' value={formData.confirmPassword} onChange={changeHandler}></input>
+          <div className="otp-container">
+            <input
+              className="input"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={changeHandler}
+            />
 
-                <p className='conditions'>By creating an account, you agree Neighbor may contact you using the above number and email, including through automated technology, SMS, and recorded messages. Consent is not a condition of purchase. View Privacy Policy.</p>
+            <button onClick={Sendotp} className="otp-btn" >Send OTP</button>
+          </div>
 
-                <label htmlFor='terms' className='termLabel'>I agree to the Terms of Service and Privacy Policy</label>
-                <input className='termsCheckbox' id='terms' type='checkbox' name='terms condition' value={formData.termsCondition}></input>
+          <input
+            className="input"
+            placeholder="otp"
+            name="otp"
+            value={formData.otp}
+            onChange={changeHandler}
+          />
+          <input
+            className="input"
+            placeholder="Password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={changeHandler}
+          />
+          <input
+            className="input"
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            type="password"
+            value={formData.confirmPassword}
+            onChange={changeHandler}
+          />
 
-                <div className='btn-container'>
-                    <input type='submit' value="Create Account" className='btn'></input>
-                    <Link to={"/login"}>
-                        <p className='login-url'>Log into an existing account</p>
-                    </Link>
-                </div>
-                
-            </form>
-        </div>
+          {/* <label>Account Type : </label>
+          <select name="accountType" onChange={changeHandler} required>
+            <option value="" disabled selected>
+              {" "}
+              Select{" "}
+            </option>
+            <option value="Owner">Owner</option>
+            <option value="Customer">Customer</option>
+          </select> */}
 
-        <img src={regImg} className='register-img'/>
+          <p className="conditions">
+            By creating an account, you agree Neighbor may contact you using the
+            above number and email, including through automated technology, SMS,
+            and recorded messages. Consent is not a condition of purchase. View
+            Privacy Policy.
+          </p>
+
+          <label htmlFor="terms" className="termLabel">
+            <input
+              className="termsCheckbox"
+              id="terms"
+              type="checkbox"
+              name="termsCondition"
+              checked={formData.termsCondition}
+              onChange={changeHandler}
+              style={{ marginRight: "1rem" }}
+            />
+            I agree to the Terms of Service and Privacy Policy
+          </label>
+
+          <div className="btn-container">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={doRegister}
+            >
+              Create Account
+            </Button>
+
+            <Link to="/login">
+              <p className="login-url">Log into an existing account</p>
+            </Link>
+          </div>
+        </form>
+
+        <img src={regImg} alt="Register" className="register-img" />
+      </div>
+
     </div>
-  )
-}
+  );
+};
 
 export default Register;

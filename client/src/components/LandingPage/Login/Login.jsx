@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Img from "../../../assets/house1.jpg";
 import img2 from "../../../assets/login.jpg";
+import { useState } from 'react';
+import { loginReq } from '../../../services/requests';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -23,6 +26,43 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const loginHandler = async (event) => {
+    try {
+      alert(JSON.stringify(formData));
+      event.preventDefault();
+      const resp = await loginReq(formData);
+      alert(JSON.stringify(resp.data));
+
+      if(resp.data.accountType==="Customer")
+      {
+        navigate("/userdash");
+      }
+      else 
+      {
+        navigate("/ownerDashboard");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
+  };
+
+  // const loginObj = {email: formData.email , password: formData.password};
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -75,6 +115,8 @@ export default function SignInSide() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={formData.email}
+                onChange={changeHandler}
                 autoFocus
               />
               <TextField
@@ -86,16 +128,19 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={formData.password}
+                onChange={changeHandler}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
               <Button
-                type="submit"
+                type="button"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={loginHandler}
               >
                 Log In
               </Button>

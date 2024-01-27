@@ -1,0 +1,124 @@
+/* UserDashboard.css */
+
+* {
+  font-family: 'Viga', sans-serif;
+  color: black;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 20px;
+}
+
+.left-half {
+  width: 100%;
+  text-align: center;
+}
+
+.find-land-button,
+.prev-land-button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.find-land-button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 1rem;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+}
+
+.prev-land-button {
+  background-color: #2e78cc;
+  color: white;
+  padding: 1rem;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+}
+
+.find-land-button:hover {
+  background-color: white;
+  color: #2ecc71;
+  transform: scale(1.05);
+  border: #2ecc71 1px solid;
+}
+
+.prev-land-button:hover {
+  background-color: white;
+  color: #2e78cc;
+  transform: scale(1.05);
+  border: #2e78cc 2px solid;
+}
+
+.landscape-pic {
+  max-width: 100%;
+  border-radius: 100%;
+  max-height: auto;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (min-width: 768px) {
+  .body-container {
+    flex-direction: row;
+  }
+
+  .left-half {
+    width: 45%;
+  }
+
+  .landscape-pic {
+    max-width: 20vw;
+    max-height: 20vw;
+  }
+}
