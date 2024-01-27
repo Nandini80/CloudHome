@@ -1,0 +1,136 @@
+/* Owner.css */
+.container {
+    max-width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+  
+  /* Hero Section */
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 20px;
+  }
+  
+  .owner-dash-img {
+    width: 35%;
+    height: auto;
+  }
+  
+  .hero {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .hero-head {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #333; /* Adjust color as needed */
+  }
+  
+  .hero-subHead {
+    font-size: 1.2rem;
+    color: #666; /* Adjust color as needed */
+  }
+  
+  .hero-btn-container {
+    display: flex;
+    margin-top: 20px;
+    gap: 0.7rem;
+    align-items: center;
+    
+  }
+  
+  .list-btn {
+    background-color: #007bff; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 200ms linear;
+  }
+
+  .list-btn:hover{
+    transition: all 200ms linear;
+    background-color: blue;
+  }
+  
+  .tick {
+    color: green; /* Adjust color as needed */
+    scale: 2;
+  }
+  
+  /* Hero Section 2 */
+  .hero-section-2 {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-head-2{
+    font-weight: 900;
+    font-size: 2.8rem;
+}
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .card {
+    padding: 20px;
+    width: 90%;
+    border: none;
+  }
+  
+  .card-head {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #333;
+  }
+  
+  .card-para {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .hero-3{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-head-3{
+    font-weight: 900;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+
+  

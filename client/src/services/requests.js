@@ -14,4 +14,32 @@ const OTPReq=(data)=>{
     return publicReq.post("/api/v1/auth/sendotp",data);
 }
 
-export {SignupReq,Login,OTPReq};
+
+const nearbyLands = ()=>
+{
+    return publicReq.get('/land/nearbyLands');
+}
+
+const createLand = (data)=>{
+    return publicReq.post('/land/createLand');
+}
+
+const deleteLand = ()=>{
+    return publicReq.delete('/land/deleteLand');
+}
+
+const editLand = ()=>{
+    return publicReq.put('/land/editLand');
+}
+
+//for customers
+const rentedLands = ()=>{
+    return publicReq.get('/land/rentedLands');
+}
+
+//for owners
+const rentedUsers = ()=>{
+    return publicReq.get('/land/getRentedUsers');
+}
+
+export {SignupReq,Login ,OTPReq, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
