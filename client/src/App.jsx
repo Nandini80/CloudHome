@@ -9,6 +9,7 @@ import UserDashboard from './components/User/Dashboard/userdash';
 import ChatPage from './components/Chat/chat';
 import { useEffect, useState } from 'react';
 import Landing from './components/LandingPage/LandPage/Landing';
+import LandPage from './components/Host/LandPage/LandPage';
 
 function App() {
   const [user, setUser] = useState({});
@@ -36,12 +37,12 @@ function App() {
         <Route path='/signup' element={token ?<Navigate to={user=== "Owner" ? "/ownerDashboard":"/userdash"} /> :<Register />} />
         <Route path='/login' element={token ?<Navigate to={user === "Owner" ? "/ownerDashboard":"/userdash"} /> :<Login />} />
         {/* <Route path="/signup" element={<Register />} /> */}
-        <Route path="/hostprofile" element={<HostProfile />} />
         <Route path='/ownerDashboard' element={<Owner />} />
         <Route path="/signup" element={<Register />}></Route>
         <Route path="/hostprofile" element={<HostProfile />}></Route>
         <Route path="/userdash" element={<UserDashboard />}></Route>
         <Route path="/chat" element={<ChatPage />}></Route>
+        <Route path="/landPage" element={<LandPage />}></Route>
       </Routes>
     </>
   )

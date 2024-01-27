@@ -5,8 +5,7 @@ const { user } = require("../config/prismaConfig");
 exports.updateProfile = async(req, res)=>{
     try {
         const {email , phoneNumber , address =null, state =null, pinCode = null, city=null } = req.body;
-//
-
+        console.log(email,phoneNumber,address,state);
         if (!email) {
           return res.status(400).json({ error: 'Email is required for updating the profile.' });
         }
