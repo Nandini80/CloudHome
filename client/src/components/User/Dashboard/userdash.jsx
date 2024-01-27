@@ -1,4 +1,3 @@
-import React from 'react';
 import './userdash.css';
 import { TiTick } from "react-icons/ti";
 // import { CiSettings } from "react-icons/ci";
@@ -8,12 +7,49 @@ import { TiTick } from "react-icons/ti";
 // import img1 from '../../../assets/Unknown_person.jpg';
 // import UserNavbar from '../UserNav/UserNavbar';
 
+import { CiSettings } from "react-icons/ci";
+import { CiLogout } from "react-icons/ci";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+import logo from '../../../assets/CloudHomeLogo.png';
+import img1 from '../../../assets/Unknown_person.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {
+
+  const navigate = useNavigate();
+  const doLogout = ()=>{
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("token");
+    navigate("/");
+  }
+
   return (
     <div className='container'>
         {/*Hero section */}
         <div className='hero-section'>
+    <div>
+      {/* Navbar */}
+      <div className="navbar">
+        <div className="company-info" style={{paddingLeft:'1rem'}} >
+          <img src={logo} className="logo" />
+          <span className="company-name">CloudHome</span>
+        </div>
+        <div style={{paddingRight:'2rem'}} >
+          <CiSettings className="icon" />
+          <CiLogout className="icon" onClick={doLogout} />
+          <IoIosHelpCircleOutline className="icon" />
+        </div>
+      </div>
+      {/* Body */}
+      <div className="body-container">
+        <div className="left-half">
+          <h1 style={{marginLeft: '3rem'}}>Your Dashboard</h1>
+          <br />
+          <button className="find-land-button">Find land nearby</button>
+          <button className="prev-land-button">Previous Lands rented</button>
+        </div>
+        <img src={img1} alt="Landscape" className="landscape-pic" />
+      </div>
 
             <img src="" className='owner-dash-img'/>
 
