@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URL")
+}
+
+model RatingsAndReviews{
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  stars Int
+  review String 
+  userId String @db.ObjectId @unique
+  landId String @db.ObjectId @unique
+  user User @relation("reviews" , fields: [userId] , references: [id])
+  land Land @relation("land" , fields: [landId] , references: [id])
+}
+
+//add tags so that we can filter land
+//add message seen or not functionality
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  content    String
+  createdAt  DateTime @default(now())
+  // Reference to the sender
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
+  senderId   String   @db.ObjectId
+  // Reference to the receiver
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  receiverId String   @db.ObjectId
+}
+
+model Otp {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  otp       String
+  createdAt DateTime @default(now())
+  //prisma does not have expires/time to live feature to directly add in models we need to manually run this commmand in mongoshell to add time to live in a model
+  //db.otp.createIndex({ "createdAt": 1 }, { expireAfterSeconds: 300 }) 
+}
+
+model Land {
+  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
+  landName            String //req
+  owner               User  @relation("owner" , fields: [ownedId], references: [id])
+  ownedId             String  @db.ObjectId
+  description         String
+  image               String
+  price               Int
+  additionalImages    String[] @default([])
+  appointmentRequired Boolean
+  Access              access
+  state               String
+  landAddress         String
+  rentedUsers         String[] @default([]) @db.ObjectId
+  users               User[]   @relation("rentedLands" , fields: [rentedUsers], references: [id])
+  ratingsAndReviews   RatingsAndReviews[] @relation("land")
+}
+
+model User {
+  id                   String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName            String
+  lastName             String
+  landsRented          String[]  @default([]) @db.ObjectId
+  LandRef              Land[]    @relation("rentedLands" ,fields: [landsRented], references: [id])
+  email                String    @unique
+  phoneNumber          Int?       @unique
+  password             String
+  ownedLands           Land[]   @relation("owner")
+  image                String
+  accountType          userType
+  address              String?
+  state                String?
+  pinCode              String?
+  city                 String?
+  token                String? @unique
+  resetPasswordExpires DateTime?
+  sentMessages         Message[] @relation("SentMessages")
+  receivedMessages     Message[] @relation("ReceivedMessages")
+  ratingsAndReviews    RatingsAndReviews[] @relation("reviews")
+}
+
+enum userType {
+  Admin
+  Customer
+  Owner
+}
+
+enum access {
+  Daily
+  Weekly
+  Monthly
+  Yearly
+}
