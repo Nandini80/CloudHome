@@ -9,8 +9,9 @@ router.post('/createLand'  ,  createLand);
 router.delete('/deleteLand' , auth , isOwner , deleteLand);
 router.put('/editLand' ,auth , isOwner ,  editLand);
 router.get('/landDetails' , auth , LandDetails);
-router.get('/nearbyLands' ,auth ,  nearbyLand);
+router.get('/nearbyLands' ,  nearbyLand);
 router.get('/rentedLands' , auth , isCustomer , rentedLands);
 router.get('/getRentedUsers' ,auth , isOwner, getRentedUsers);
+router.get('/getLandsByCity' , getLandsByCity);
 
 module.exports = router;

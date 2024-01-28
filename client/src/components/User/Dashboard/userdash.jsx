@@ -68,7 +68,7 @@ const UserDashboard = () => {
             <h2 className='hero-head-3'>Check Your Rented Users</h2>
             {/*send request get to backend add map function to show your rented users as caraousel or no lands if no lands fetched */}
         </div>
-        <div>
+        <div id='contact'>
             <Footer bn={800}/>
         </div>
     </div>

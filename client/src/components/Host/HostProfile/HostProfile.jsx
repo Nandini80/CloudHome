@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { GetItems, SaveProfileOwner } from '../../../services/requests';
 import { useNavigate } from 'react-router-dom';
-import { grey } from '@mui/material/colors';
+// import { grey } from '@mui/material/colors';
 
 function HostProfile() {
   const navigate = useNavigate();
@@ -63,20 +63,23 @@ useEffect(() => {
         </h1>
       </center>
       <Row className="mb-3">
-        <Col md={4}>
-          <center>
-            <img
-              src={obj2.data.data.image}
-              alt="Profile"
-              style={{
-                width: '100px',
-                height: '100px',
-                borderRadius: '50%',
-                marginBottom: '1rem',
-              }}
-            />
-          </center>
-        </Col>
+      <Col md={4}>
+  <center>
+    {obj2 && obj2.data && obj2.data.data && obj2.data.data.image && (
+      <img
+        src={obj2.data.data.image}
+        alt="Profile"
+        style={{
+          width: '100px',
+          height: '100px',
+          borderRadius: '50%',
+          marginBottom: '1rem',
+        }}
+      />
+    )}
+  </center>
+</Col>
+
         <Col md={8}>
           <Form validated={validated} onSubmit={handleSubmit} method="post">
             <Form.Group as={Row} className="mb-3">

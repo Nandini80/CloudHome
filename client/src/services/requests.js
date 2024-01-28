@@ -22,10 +22,16 @@ const GetItems=(data)=>{
     return publicReq.post("/api/v1/profile/profileDetails",data);
 }
 
-const nearbyLands = ()=>
+const NearbyCites = ()=>
 {
-    return publicReq.get('/land/nearbyLands');
+    return publicReq.post('/land/getLandsByCity');
 }
+
+const DistinctCities = ()=>
+{
+    return publicReq.post('/land/getOwnerCities');
+}
+
 
 const createLand = ()=>{
     return publicReq.post('/land/createLand');
@@ -49,4 +55,4 @@ const rentedUsers = ()=>{
     return publicReq.get('/land/getRentedUsers');
 }
 
-export {SignupReq,loginReq,GetItems ,OTPReq,SaveProfileOwner, nearbyLands , createLand , editLand , deleteLand , rentedLands , rentedUsers};
+export {SignupReq,loginReq,GetItems ,OTPReq,SaveProfileOwner, NearbyCites,DistinctCities , createLand , editLand , deleteLand , rentedLands , rentedUsers};
