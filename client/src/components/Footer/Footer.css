@@ -1,4 +1,20 @@
-.foot_content a:hover{
+/* Footer.css */
+
+@font-face {
+    font-family: roboto-black;
+    src: url('../../assets/Roboto-Black.ttf');
+}
+
+@font-face {
+    font-family: roboto-thin;
+    src: url('../../assets/Roboto-Regular.ttf');
+}
+
+* {
+    font-family: roboto-thin;
+}
+
+.foot_content a:hover {
     color: blue;
     transition: color 0.3s linear;
 }
@@ -7,19 +23,22 @@
     padding: 30px 0 50px 0;
     overflow-x: hidden;
     display: flex;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     justify-content: space-evenly;
     width: 100%;
     position: absolute;
     left: 0px;
-    top: 2500px;
     border: none;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    font-family: roboto-thin;
 }
 
 .footer-element {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: roboto-thin;
 }
 
 .menu_contents {
@@ -33,23 +52,23 @@
     gap: 20px;
 }
 
-.active{
+.active {
     transform: scaleX(1);
     transition: transform 0.3s linear;
 }
 
-.active-cross-overlay{
+.active-cross-overlay {
     display: block;
     opacity: 0.5;
     transition: opacity 0.5s linear;
 }
 
-.icon{
+.icon {
     color: #0066cc;
     transition: color 0.3s linear;
 }
 
-.icon:hover{
+.icon:hover {
     color: blue;
     transition: color 0.3s linear;
 }
@@ -58,24 +77,28 @@
     font-weight: bold;
     font-size: 16px;
     word-spacing: 10%;
-    font-family: outfit;
+    font-family: roboto-thin;
 }
 
 .foot_content a {
     text-decoration: none;
     color: #0066cc;
-    font-family: Roboto;
+    font-family: roboto-thin;
     font-size: 16px;
     transition: color 0.3s linear;
 }
 
 .foot_content p {
     color: #0066cc;
-    font-family: Roboto;
     font-size: 16px;
+    font-family: roboto-thin;
 }
 
 .Rights a {
     font-size: 18px;
     text-decoration: underline;
+}
+
+.social-head {
+    margin-left: 1rem;
 }

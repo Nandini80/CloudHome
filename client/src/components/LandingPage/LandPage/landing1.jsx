@@ -3,6 +3,7 @@ import '../../LandingPage/LandPage/style1.css';
 import logo from "../../../assets/CloudHomeLogo.png";
 import ukp from "../../../assets/Unknown_person.jpg"
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../Footer/Footer';
 
 function Landing1() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Landing1() {
   }
     return (
     <>
-    <div style={{overflowY:"auto"}}>
+    <div style={{overflowY:"auto", overflowX:"hidden"}}>
       <header className="header">
         <div className="logo">
           <img src={logo} alt='logo' className='logopic'/>
@@ -91,33 +92,7 @@ function Landing1() {
         </div>
       </section>
 
-      <footer className="footer" id="footer">
-        <div className="connect-section">
-          <h5>Connect with Us</h5>
-          <p>Follow us on social media for updates and more.</p>
-          {/* Add social media icons or links here */}
-        </div>
-        <div className="quick-links">
-          <h5>Quick Links</h5>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">User</a></li>
-            <li><a href="#">Lands</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div className="partners">
-          <h5>Our Partners</h5>
-          <div className="partner-logos">
-            <img src="/prologis.png" alt="Prologis" />
-            <img src="/equinix.png" alt="Equinix" />
-            <img src="/tower.png" alt="Tower" />
-          </div>
-        </div>
-        <div className="footer-text">
-          <p>&copy; {new Date().getFullYear()} CloudHome. All Rights Reserved.</p>
-        </div>
-      </footer>
+      <Footer bn={1250} />
       </div>
     </>
   );
