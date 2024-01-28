@@ -5,7 +5,7 @@ const {createLand , deleteLand , editLand ,LandDetails} = require('../controller
 const {nearbyLand , rentedLands , getRentedUsers} = require('../controllers/getLands');
 const { auth ,isOwner , isCustomer} = require('../middlewares/auth');
 
-router.post('/createLand' ,auth , isOwner ,  createLand);
+router.post('/createLand'  ,  createLand);
 router.delete('/deleteLand' , auth , isOwner , deleteLand);
 router.put('/editLand' ,auth , isOwner ,  editLand);
 router.get('/landDetails' , auth , LandDetails);

@@ -54,7 +54,7 @@ export default function SignInSide() {
       else {
         localStorage.setItem("token", resp.data.userFound.token);
         localStorage.setItem("email", resp.data.userFound.email);
-        // localStorage.setItem("id", resp.data.userFound.id);
+        localStorage.setItem("Userid", resp.data.userFound.id);
         localStorage.setItem("accountType", resp.data.userFound.accountType);
         if (resp.data.userFound.accountType === "Customer") {
           navigate("/userdash");

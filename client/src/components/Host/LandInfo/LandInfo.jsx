@@ -12,6 +12,7 @@ function LandInfo()
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [obj, doSetObj] = useState({
+    id:"",
     landName:"",
     description:"",
     price:"",
@@ -19,6 +20,7 @@ function LandInfo()
     appointmentRequired:false,
     city:"",
     landAddress:"",
+    state:"",
     image:null,
   });
 
@@ -33,16 +35,17 @@ function LandInfo()
   };
 
   // let userID;
-  let eml;
+  let userID;
   useEffect(() => {
-     eml = localStorage.getItem("email");
-    //  userID = localStorage.getItem("id");
+    //  eml = localStorage.getItem("email");
+     userID = localStorage.getItem("Userid");
 
-     doSetObj({...obj,email : eml});
-    //  doSetObj({...obj,id : userID});
+    //  doSetObj({...obj,email : eml});
+     doSetObj({...obj,id : userID});
   }, []);
 
-  async function saveInfo() {
+  async function saveInfo() 
+  {
     alert(JSON.stringify(obj));
     var url = "http://localhost:3000/api/v1/land/createLand";
     var formData = new FormData();
@@ -50,9 +53,10 @@ function LandInfo()
       formData.append(x, obj[x]);
     }
     var response = await axios.post(url, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
-    alert(JSON.stringify(response.data));
+    // alert(JSON.stringify(response.data));
+    alert("Information Savedd");
 
-    navigate("/userdash");
+    navigate("/ownerDashboard");
   }
 
   const doSetObjValue = (event) => {
@@ -74,10 +78,8 @@ function LandInfo()
   function SetPic(event) {
     var value = event.target.files[0];
     var { name } = event.target;
-    changeImage(value);
-    alert(name);
-    alert(value);
     doSetObj({ ...obj, [name]: value });
+    changeImage(value);
   }
   
   // const saveInfo=async ()=>{
@@ -132,6 +134,14 @@ function LandInfo()
           <Form.Group as={Col} md="4" controlId="validationCustom03">
             <Form.Label>Land City</Form.Label>
             <Form.Control type="text" placeholder="City" onChange={doSetObjValue} value={obj.city} name="city" required />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid city.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group as={Col} md="4" controlId="validationCustom03">
+            <Form.Label>Land State</Form.Label>
+            <Form.Control type="text" placeholder="State" onChange={doSetObjValue} value={obj.state} name="state" required />
             <Form.Control.Feedback type="invalid">
               Please provide a valid city.
             </Form.Control.Feedback>
