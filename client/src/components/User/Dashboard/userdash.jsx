@@ -1,27 +1,23 @@
 import './userdash.css';
 import userDashImg from '../../../assets/userDash.jpeg';
 import UserNavbar from '../UserNav/userNavbar';
+import Footer from '../../Footer/Footer';
 
 const UserDashboard = () => {
-
- 
 
   return (
     <div className='container'>
 
-      <UserNavbar/>
+        <UserNavbar/>
         {/*Hero section */}
         <div className='hero-section'>
-
             <img src={userDashImg} className='owner-dash-img'/>
-
             <div className='hero'>
                 <h1 className='hero-head'>Hello Your Name <br/> Welcome To CloudHome</h1>
                 <p className='hero-subHead'>Find storages easily!</p>
                 <div className='hero-btn-container'>
                     <button className='list-btn'>Find Nearby Land</button>
                 </div>
-
             </div>
         </div>
 
@@ -72,8 +68,11 @@ const UserDashboard = () => {
             <h2 className='hero-head-3'>Check Your Rented Users</h2>
             {/*send request get to backend add map function to show your rented users as caraousel or no lands if no lands fetched */}
         </div>
-        
+        <div>
+            <Footer bn={800}/>
+        </div>
     </div>
+    
   );
 };
 
