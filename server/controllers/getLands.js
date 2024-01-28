@@ -223,11 +223,7 @@ exports.getLandsByCity = async(req, res)=>{
 exports.ownerCities = async(req, res)=>{
     try{
 
-        const ownerDetails = await prisma.user.findMany({
-            where:{
-                accountType: "Owner",
-            }
-        });
+        const ownerDetails = await prisma.land.findMany({});
 
         if(!ownerDetails){
             return res.status(404).json({
