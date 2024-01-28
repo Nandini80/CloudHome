@@ -1,0 +1,10 @@
+.outter
+{
+  border:1px black solid;
+  box-shadow: 1px 1px 8px 1px;
+  width:18rem;
+  height:13rem;
+  float:left;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}

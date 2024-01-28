@@ -1,5 +1,5 @@
 import React from "react";
-import cstyle from  "../Styling/card2.module.css";
+import cstyle from  "./CityCard.css";
 
 
 const CityCard=(objProp)=>{
