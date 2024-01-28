@@ -2,9 +2,14 @@ import './userdash.css';
 import userDashImg from '../../../assets/userDash.jpeg';
 import UserNavbar from '../UserNav/userNavbar';
 import Footer from '../../Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {
-
+    const navigate = useNavigate();
+    
+    const DoNavigate=()=>{
+    navigate("/nearByLands");
+    }
   return (
     <div className='container'>
 
@@ -16,7 +21,7 @@ const UserDashboard = () => {
                 <h1 className='hero-head'>Hello Your Name <br/> Welcome To CloudHome</h1>
                 <p className='hero-subHead'>Find storages easily!</p>
                 <div className='hero-btn-container'>
-                    <button className='list-btn'>Find Nearby Land</button>
+                    <button className='list-btn' onClick={DoNavigate}>Find Nearby Land</button>
                 </div>
             </div>
         </div>

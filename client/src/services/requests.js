@@ -24,12 +24,12 @@ const GetItems=(data)=>{
 
 const NearbyCites = ()=>
 {
-    return publicReq.post('/land/getLandsByCity');
+    return publicReq.post('/api/v1/land/getLandsByCity');
 }
 
 const DistinctCities = ()=>
 {
-    return publicReq.get('/land/getOwnerCities');
+    return publicReq.get('/api/v1/land/ownerCities');
 }
 
 

@@ -19,8 +19,8 @@ function NearbyLands()
 
     const doFetchCity=async()=>{
         const res = await DistinctCities();
-        alert(res);
-        setCity(res.data.user);
+        alert(JSON.stringify(res));
+        setCity(res.data.city);
        };
 
        const doSearch=async()=>
@@ -45,13 +45,16 @@ function NearbyLands()
        <Form method="post">
         <Row className='offset-md-4'>
        <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
-            <Form.Label>City</Form.Label>
+        <center>
+        <h2>City</h2>
+
             <select name="city" required onChange={(e)=>c1= e.target.value}>
               <option value="" disabled selected> Select </option>
               {
                 jsonCity.map((obj)=> <option value={obj}>{obj}</option>)
               }
             </select>
+            </center>
           </Form.Group>
 
           </Row>
@@ -65,7 +68,9 @@ function NearbyLands()
             })
           }
           </Row>
-          <Button md="1" as={Col} className='offset-md-5' variant="primary" onClick={doSearch}>Search</Button>
+          <center>
+            <input type="button" style={{marginLeft:"-3rem"}} variant="primary" value="Search" onClick={doSearch}/>
+          </center>
        </Form>
     </div>
   )
