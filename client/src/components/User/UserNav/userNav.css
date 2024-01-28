@@ -5,14 +5,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    overflow-x: hidden;
     /* position: relative; */
     /* bottom: 40px; */
 }
 
 .logo{
-    /* height: 2rem; */
+    margin-top: -1rem;
+    margin-right: 1rem;
     object-fit: cover;
-    /* width: 2rem; */
     max-width: 2rem;
 }
 
@@ -28,6 +29,7 @@
     transition: all 200ms linear;
     font-weight: bold;
     font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .logout{
@@ -44,6 +46,7 @@
 
 .nav-element:hover{
     color: blue;
+  
 }
 
 .nav-first{

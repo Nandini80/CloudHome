@@ -183,7 +183,6 @@ exports.getLandsByState = async(req, res)=>{
 
 exports.getLandsByCity = async(req, res)=>{
     try{
-
         const {city} = req.body;
 
         if(!city){

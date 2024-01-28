@@ -23,10 +23,10 @@ function Landing1() {
           <img src={logo} alt='logo' className='logopic'/>
           <span className='coname'>CloudHome</span>
         </div>
-            <a href="#" className='opt'>Home</a>
-            <a href="#" className='opt'>Reviews</a>
+            <a href="/" className='opt'>Home</a>
+            <a href="#Reviews" className='opt'>Reviews</a>
             {/* <a href="#" className='opt'>Lands</a> */}
-            <a href="#" className='opt'>Contact Us</a>
+            <a href="#footer" className='opt'>Contact Us</a>
         <div className="auth-buttons">
           <button className="register-button" onClick={doRegister}>Register</button>
           <button className="login-button" onClick={doLogin}>Login</button>
@@ -45,10 +45,13 @@ function Landing1() {
         </div>
       </section>
 
-      <section className="customer-reviews">
+      <section className="customer-reviews" id='Reviews'>
         <div className='review-head'>
-            <h2>Reviews</h2>
-            Dont believe us? Listen from our users.
+          <center>
+          <h2 style={{fontWeight:"bold",marginTop:"4rem"}}>Reviews</h2>
+            Don't believe us? Listen from our users.
+          </center>
+           
         </div>
         <div className="review-cards">
           <div className="review-card">
@@ -92,7 +95,9 @@ function Landing1() {
         </div>
       </section>
 
+      <div id='footer'>
       <Footer bn={1250} />
+      </div>
       </div>
     </>
   );

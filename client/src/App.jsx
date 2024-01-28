@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import LandPage from './components/Host/LandInfo/LandInfo';
 import Owner from './components/Host/HostDashboard/Owner';
 import LandInfo from './components/Host/LandInfo/LandInfo';
+import NearbyLands from './components/User/NearByLands/NearbyLands';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/userprofile" element={<UserProfile/>}></Route>
         <Route path="/landPage" element={<LandPage />}></Route>
         <Route path='/landinfo' element={<LandInfo />}></Route>
+        <Route path='/nearByLands' element={<NearbyLands />}></Route>
       </Routes>
     </>
   )

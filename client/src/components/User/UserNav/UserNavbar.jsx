@@ -24,7 +24,7 @@ const UserNavbar = () => {
       </div>
 
         <div className='sub-nav'>
-            <p className='nav-element'>Help</p>
+            <a className='nav-element' href='#contact'>Help</a>
             <p className='nav-element' onClick={OpenProfile}>Profile</p>
             <p className='nav-element'><LuLogOut className='logout' onClick={doLogout}/></p>
         </div>  

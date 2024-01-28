@@ -121,7 +121,7 @@
 
 .customer-reviews{
     width: 100vw;
-    height: 60vh;
+    height: 100vh;
     /* overflow-x: scroll; */
     overflow-x: hidden;
 }
@@ -150,7 +150,7 @@
 }
 
 .review-card {
-    height: 40vh;
+    height: 50vh;
     width: 25vw;
     padding: 1rem;
     margin: 1rem;
