@@ -2,17 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
-const LandPage = ({image , phoneNumber}) => {
+const LandPage = ({image , phoneNumber , landName , description , price ,appointmentRequired , Access , state , city}) => {
   return (
     <div className='land-container'>
         <div className='contacts'>
             <img className='land-img' src={image}/>
             <Link to={'/chat'}><IoChatbubbleEllipsesOutline/></Link>
-            <a href="tel:"></a>
+            {phoneNumber &&
+                <a href={`tel:${phoneNumber}`}></a>
+            }
         </div>
 
-        <div className='land-details'>
 
+        <div className='land-details'>
+            <h1>{land}</h1>
         </div>
     </div>
   )

@@ -120,7 +120,7 @@ const Register = () => {
           />
 
           <label>Account Type : </label>
-          <select name="accountType" onChange={changeHandler} required>
+          <select name="accountType" onChange={changeHandler} required className="dropdown">
             <option value="" disabled selected>
               {" "}
               Select{" "}
@@ -165,11 +165,11 @@ const Register = () => {
             </Link>
           </div>
 
-          <img src={regImg} alt="Register" className="register-img" />
+          
         </form>
         
       </div>
-
+      <img src={regImg} alt="Register" className="register-img" />
         
     </div>
 
