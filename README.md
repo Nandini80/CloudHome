@@ -30,6 +30,13 @@ Webpack
 Prisma 
 Nodejs
 
+## Contributions by members
+1. Daksh Arora - frontend
+2. Rishab Jha - backend
+3. Nandini Jindal - Connectivity and frontend
+4. Dishi Gautam - frontend
+
+
 ## Contact
 
 For communication contact: nandinijindal010@gmail.com
