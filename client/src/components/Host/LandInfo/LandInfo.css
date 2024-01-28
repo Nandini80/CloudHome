@@ -1,0 +1,13 @@
+.landName{
+    border-radius: 10px;
+}
+
+@font-face {
+    font-family: roboto-black;
+    src: url(../../../assets/Roboto-Black.ttf);
+}
+
+@font-face {
+    font-family: roboto-regular;
+    src: url(../../../assets/Roboto-Regular.ttf);
+}
