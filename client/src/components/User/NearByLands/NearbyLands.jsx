@@ -11,17 +11,24 @@ function NearbyLands()
     var c1="";
     const [jsonCity,setCity] = useState([]); 
     const [jsonAry,setAry] = useState([]);
+    const [obj,setObj] = useState({});
 
     useEffect(()=>{
         doFetchCity();
     },[]); 
 
 
-    const doFetchCity=async()=>{
+    const doFetchCity = async () => {
+      try {
         const res = await DistinctCities();
-        alert(JSON.stringify(res));
-        setCity(res.data.city);
-       };
+        // alert(JSON.stringify(res.data.data));
+        const cities = res.data.data.map((cityObj) => cityObj.city);
+        setCity(cities);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+    
 
        const doSearch=async()=>
        {
@@ -31,22 +38,25 @@ function NearbyLands()
         }
         else 
         {
-          const resp = await NearbyCites({c1});
-          alert(JSON.stringify(resp));
-          setAry(resp.data);
+          // alert(JSON.stringify({city : c1}));
+          const updatedObj = { city: c1 }; 
+          setObj((prevObj) => ({ ...prevObj, city: c1 }));
+          const resp = await NearbyCites(JSON.stringify({city : c1}));
+          // alert(JSON.stringify(resp));
+          setAry(resp.data.landsByState);
         }
        }
 
   return (
-    <div>
+    <div style={{overflowX:"hidden"}}>
        <center>
-       <h1 className='mt-3'>Find the Jobs available</h1>
+       <h1 className='mt-3'>Land Available Near You</h1>
        </center>
        <Form method="post">
         <Row className='offset-md-4'>
        <Form.Group as={Col} md="4" style={{ margin: "40px" }}>
         <center>
-        <h2>City</h2>
+        <h3>Select City</h3>
 
             <select name="city" required onChange={(e)=>c1= e.target.value}>
               <option value="" disabled selected> Select </option>
@@ -63,7 +73,7 @@ function NearbyLands()
           {
             jsonAry.map((obj)=>{
                 return(
-                    <CityCard Name={obj.name} Email={obj.email} Mobile={obj.mobile} City={obj.city} address={obj.address}></CityCard>
+                    <CityCard LandName={obj.landName} landAddress={obj.landAddress} State={obj.state} appointmentRequired={obj.appointmentRequired} Price={obj.price} image={obj.image} Description={obj.description} Access={obj.Access}></CityCard>
                 )
             })
           }

@@ -5,19 +5,22 @@ import "./CityCard.css";
 const CityCard=(objProp)=>{
 return(
     <>
- <div className={cstyle.outter}>
-    {/* <img src={`http://localhost:2000/uploads/${objProp.img}`}  width="100%" height="200" /> */}
+ <div className="outter">
+    {/* <img src={`http://localhost:2000/uploads/${objProp.image}`}  width="100%" height="200" /> */}
       <div className="ms-4 mt-4">
-        Name : {objProp.Name}
+      LandName : {objProp.LandName}
         <br />
-        Email : {objProp.Email}
+        landAddress : {objProp.landAddress}
      <br />
-        Contact : {objProp.Mobile}
-     <br />
-        City : {objProp.City}
+     State : {objProp.State}
+     {/* <br />
+     appointmentRequired : {objProp.appointmentRequired} */}
     <br />
-        Address : {objProp.address}
+    Price : {objProp.Price}
      <br />
+     Description : {objProp.Description}
+     <br />
+     Access : {objProp.Access}
      </div>
  </div>
  </>

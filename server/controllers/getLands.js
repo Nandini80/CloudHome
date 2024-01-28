@@ -183,8 +183,9 @@ exports.getLandsByState = async(req, res)=>{
 
 exports.getLandsByCity = async(req, res)=>{
     try{
-        const {city} = req.body;
-
+        console.log(req.body);
+        const city = "Bathinda";
+        console.log(city);
         if(!city){
             return res.status(400).json({
                 success: false,
