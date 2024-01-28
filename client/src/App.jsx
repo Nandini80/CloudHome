@@ -8,9 +8,9 @@ import ChatPage from './components/Chat/chat';
 import UserProfile from './components/User/UserProfile/UserProfile';
 import Landing1 from './components/LandingPage/LandPage/landing1';
 import { useEffect, useState } from 'react';
-import LandPage from './components/Host/LandPage/LandPage';
+import LandPage from './components/Host/LandInfo/LandInfo';
 import Owner from './components/Host/HostDashboard/Owner';
-import LandInfo from './components/Host/LandPage/LandPage';
+import LandInfo from './components/Host/LandInfo/LandInfo';
 
 
 function App() {
