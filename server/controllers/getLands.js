@@ -220,3 +220,35 @@ exports.getLandsByCity = async(req, res)=>{
         });
     }
 }
+
+exports.ownerCities = async(req, res)=>{
+    try{
+
+        const ownerDetails = await prisma.user.findMany({
+            where:{
+                accountType: "Owner",
+            }
+        });
+
+        if(!ownerDetails){
+            return res.status(404).json({
+                success: false,
+                message: "No registered owners",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Successfully fetched all owner's cities",
+            data: ownerDetails,
+        });
+
+
+    } catch(error){
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong while fetching owner cities",
+            error: error.message,
+        });
+    }
+}
