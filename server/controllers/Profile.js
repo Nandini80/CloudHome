@@ -4,15 +4,15 @@ const { user } = require("../config/prismaConfig");
 //update delete profile
 exports.updateProfile = async(req, res)=>{
     try {
-        const { phoneNumber , address =null, state =null, pinCode = null, city=null } = req.body;
-        const userId = req.user.id;
+        const {email ,  phoneNumber , address =null, state =null, pinCode = null, city=null } = req.body;
+        // const userId = req.user.id;
 
         console.log(userId,phoneNumber,address,state);
-        if (!userId) {
-          return res.status(400).json({ error: 'UserId is required for updating the profile.' });
+        if (!email) {
+          return res.status(400).json({ error: 'email is required for updating the profile.' });
         }
         const updatedUser = await prisma.User.update({
-          where: { id: userId},  
+          where: { email,},  
           data: {
             address,
             state,
@@ -64,21 +64,24 @@ exports.deleteAccount = async(req, res)=>{
 //get all details
 exports.getAllDetails = async(req, res)=>{
   try{
-    
-    const userId = req.user.id;
-
-    if(!userId){
+    console.log(req);
+    const {email} = req.body;
+    // const userId = req.user.id;
+    console.log(email);
+    if(!email){
       return res.status(400).json({
         success: false,
-        message: "User id is missing",
+        message: "email id is missing",
       });
     }
 
     userDetails = await prisma.user.findUnique({
       where:{
-        id: userId,
-      },
+        email,
+      }, 
     });
+
+    console.log(userDetails);
 
     if(!userDetails){
       return res.status(404).json({
@@ -87,6 +90,7 @@ exports.getAllDetails = async(req, res)=>{
       });
     }
 
+    console.log("here");
     return res.status(200).json({
       success: true,
       message: "User details fetched successfully",

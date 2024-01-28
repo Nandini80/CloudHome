@@ -3,8 +3,13 @@ import { TiTick } from "react-icons/ti";
 import OwnerImg from '../../../assets/owner-dash.png';
 import './Owner.css';
 import UserNavbar from '../../User/UserNav/userNavbar';
+import { useNavigate } from 'react-router-dom';
 
 const Owner = () => {
+    const navigate = useNavigate();
+    const OpenLandInfo=()=>{
+        navigate("/landinfo");
+    }
   return (
     <div className='container'>
         <UserNavbar />
@@ -17,7 +22,7 @@ const Owner = () => {
                 <h1 className='hero-head'>Become a CloudHome <br/> Host</h1>
                 <p className='hero-subHead'>The easiest way to make money from home by storing belongings.</p>
                 <div className='hero-btn-container'>
-                    <button className='list-btn'>List Your Space</button>
+                    <button className='list-btn' onClick={OpenLandInfo}>List Your Space</button>
                     <p><TiTick className='tick'/> It's free to list your space.</p>
                 </div>
 

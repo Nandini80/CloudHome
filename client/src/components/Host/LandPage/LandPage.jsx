@@ -7,7 +7,7 @@ import { SaveProfileOwner } from '../../../services/requests';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function HostProfile() 
+function LandInfo() 
 {
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
@@ -196,4 +196,4 @@ function HostProfile()
   );
 }
 
-export default HostProfile;
+export default LandInfo;

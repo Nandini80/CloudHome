@@ -18,8 +18,8 @@ const SaveProfileOwner=(data)=>{
     return publicReq.put("/api/v1/profile/updateProfile",data);
 }
 
-const GetItems=()=>{
-    return publicReq.get("/api/v1/profile/profileDetails");
+const GetItems=(data)=>{
+    return publicReq.post("/api/v1/profile/profileDetails",data);
 }
 
 const nearbyLands = ()=>

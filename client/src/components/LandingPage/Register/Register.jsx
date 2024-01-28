@@ -30,6 +30,10 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  const OpenLogin=()=>{
+    navigate("/login");
+  }
+
   const doRegister = async (event) => {
     try {
       // alert(JSON.stringify(formData));
@@ -157,7 +161,7 @@ const Register = () => {
             </Button>
 
             <Link to="/login">
-              <p className="login-url">Log into an existing account</p>
+              <p className="login-url" onClick={OpenLogin}>Log into an existing account</p>
             </Link>
           </div>
 

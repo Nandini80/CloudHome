@@ -3,17 +3,14 @@ import Login from './components/LandingPage/Login/Login';
 import HostProfile from './components/Host/HostProfile/HostProfile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LandingPage/Register/Register';
-
-// import Owner from './components/OwnerDashboard/Owner';
 import UserDashboard from './components/User/Dashboard/userdash';
 import ChatPage from './components/Chat/chat';
 import UserProfile from './components/User/UserProfile/UserProfile';
 import Landing1 from './components/LandingPage/LandPage/landing1';
-
-
 import { useEffect, useState } from 'react';
 import LandPage from './components/Host/LandPage/LandPage';
 import Owner from './components/Host/HostDashboard/Owner';
+import LandInfo from './components/Host/LandPage/LandPage';
 
 
 function App() {
@@ -46,7 +43,7 @@ function App() {
         <Route path="/chat" element={<ChatPage />}></Route>
         <Route path="/userprofile" element={<UserProfile/>}></Route>
         <Route path="/landPage" element={<LandPage />}></Route>
-
+        <Route path='/landinfo' element={<LandInfo />}></Route>
       </Routes>
     </>
   )

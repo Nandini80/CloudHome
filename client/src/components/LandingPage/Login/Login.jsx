@@ -46,7 +46,7 @@ export default function SignInSide() {
       // alert(JSON.stringify(formData));
       event.preventDefault();
       const resp = await loginReq(formData);
-      alert(JSON.stringify(resp.data));
+      // alert(JSON.stringify(resp.data));
       if (resp.data.success === false) 
       {
         alert(resp.data.message);
