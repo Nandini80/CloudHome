@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import regImg from "../../../assets/register-page.jpg";
-import "./Register.css";
+import "../Register/Register.css";
 import { OTPReq, SignupReq } from "../../../services/requests";
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
-
 
 const Register = () => {
   const [formData, setFormData] = useState({

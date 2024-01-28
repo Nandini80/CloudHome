@@ -35,6 +35,7 @@
     width: fit-content;
     max-width: 70%;
     width: 70%;
+    margin-left:5rem ;
 
     /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
@@ -136,4 +137,10 @@
 
 .dropdown{
   width: 50%;
+}
+
+.register-img{
+  position: absolute;
+  top: 10rem;
+  right: 12rem;
 }
