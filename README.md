@@ -7,7 +7,7 @@ To get started, follow these simple steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/awesome-project.git
+   git clone https://github.com/Nandini80/CloudHome
 2. Navigate to the project directory for clientside: cd client
 2. Navigate to the project directory for serverside: cd server
 3. Install dependencies for both the directory as required :npm install
