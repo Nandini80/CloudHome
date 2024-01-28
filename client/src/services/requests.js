@@ -29,7 +29,7 @@ const NearbyCites = ()=>
 
 const DistinctCities = ()=>
 {
-    return publicReq.post('/land/getOwnerCities');
+    return publicReq.get('/land/getOwnerCities');
 }
 
 

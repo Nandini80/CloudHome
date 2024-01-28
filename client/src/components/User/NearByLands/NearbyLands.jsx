@@ -3,10 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { fetchClient } from '../services/user';
-import Card2 from './CardClientInfo';
-import { NearbyCites } from '../../../services/requests';
-//Cards
+import { DistinctCities, NearbyCites } from '../../../services/requests';
+import CityCard from './CityCard';
 
 function NearbyLands() 
 {
@@ -21,6 +19,7 @@ function NearbyLands()
 
     const doFetchCity=async()=>{
         const res = await DistinctCities();
+        alert(res);
         setCity(res.data.user);
        };
 
@@ -33,7 +32,7 @@ function NearbyLands()
         else 
         {
           const resp = await NearbyCites({c1});
-          // alert(JSON.stringify(resp));
+          alert(JSON.stringify(resp));
           setAry(resp.data);
         }
        }
@@ -61,7 +60,7 @@ function NearbyLands()
           {
             jsonAry.map((obj)=>{
                 return(
-                    <Card2 Name={obj.name} Email={obj.email} Mobile={obj.mobile} City={obj.city} address={obj.address}></Card2>
+                    <CityCard Name={obj.name} Email={obj.email} Mobile={obj.mobile} City={obj.city} address={obj.address}></CityCard>
                 )
             })
           }
