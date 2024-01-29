@@ -1,4 +1,4 @@
-# CloudHome# Welcome to the CloudHome project
+# CloudHome
 
 
 ## Installation
