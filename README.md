@@ -12,10 +12,6 @@ To get started, follow these simple steps:
 2. Navigate to the project directory for serverside: cd server
 3. Install dependencies for both the directory as required :npm install
 
-## Usage
-
-This command will start the CloudHome and make it available at http://localhost:5173.
-
 ## Contributing
 
 We welcome contributions from the community! If you find a bug or have an idea for an improvement, please open an issue or submit a pull request.
